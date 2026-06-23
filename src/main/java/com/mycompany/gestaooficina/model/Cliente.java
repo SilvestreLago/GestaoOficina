@@ -14,10 +14,10 @@ public class Cliente {
     private int codigo;
     private String nome;
     private String telefone;
-    private int cpf;
+    private String cpf;
     private String email;
 
-    public Cliente(String nome, String telefone, int cpf, String email) {
+    public Cliente(String nome, String telefone, String cpf, String email) {
         this.codigo = GerenciamentoClientes.CODIGO;
         this.nome = nome;
         this.telefone = telefone;
@@ -50,11 +50,11 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

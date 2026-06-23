@@ -172,7 +172,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private void jButtonCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarClienteActionPerformed
         // TODO add your handling code here:
         String nome = jTextFieldNome.getText();
-        int cpf = Integer.parseInt(jTextFieldCPF.getText());
+        String cpf = jTextFieldCPF.getText();
         String telefone = jTextFieldTelefone.getText();
         String email = jTextFieldEmail.getText();
         

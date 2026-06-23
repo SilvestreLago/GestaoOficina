@@ -25,7 +25,7 @@ public class EditarCliente extends javax.swing.JFrame {
     public EditarCliente(Cliente cliente) {
         initComponents();
         this.jTextFieldNome.setText(cliente.getNome());
-        this.jTextFieldCpf.setText(""+cliente.getCpf());
+        this.jTextFieldCpf.setText(cliente.getCpf());
         this.jTextFieldTelefone.setText(cliente.getTelefone());
         this.jTextFieldEmail.setText(cliente.getEmail());
         this.codigo = cliente.getCodigo();
@@ -182,8 +182,8 @@ public class EditarCliente extends javax.swing.JFrame {
         
         //COLETA DADOS DOS CAMPOS GRÁFICOS
         String nome = jTextFieldNome.getText();
-        int cpf = Integer.parseInt(jTextFieldCpf.getText());
-        String telefone = jTextFieldEmail.getText();
+        String cpf = jTextFieldCpf.getText();
+        String telefone = jTextFieldTelefone.getText();
         String email = jTextFieldEmail.getText();
         
         //CHAMA FUNÇÃO PARA EDITAR CLIENTE

@@ -5,7 +5,9 @@
 package com.mycompany.gestaooficina.view;
 
 import com.mycompany.gestaooficina.control.GerenciamentoClientes;
+import com.mycompany.gestaooficina.control.GerenciamentoPecas;
 import com.mycompany.gestaooficina.model.Cliente;
+import com.mycompany.gestaooficina.model.Peca;
 import javax.swing.JOptionPane;
 
 /**
@@ -172,9 +174,28 @@ public class Editar extends javax.swing.JFrame {
     //EDITAR PEÇA EM ESTOQUE
     private void jButtonEditPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditPecaActionPerformed
         // TODO add your handling code here:
-        EditarPeca editPeca = new EditarPeca();
-        editPeca.setVisible(true);
+        
+        //SOLICITA O CODIGO DA PEÇA PARA SER EDITADA
         this.setVisible(false);
+        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo da peça: "));
+        
+        //PROCURA SE A PEÇA EXISTE
+        GerenciamentoPecas genPeca = GerenciamentoPecas.getInstance();
+        Peca peca = genPeca.buscarPeca(busca);
+        
+        //CASO A PEÇA NAO EXISTA, INFORMA QUE NÃO FOI ENCONTRADO
+        if(peca == null){
+            JOptionPane.showMessageDialog(null, "Peça nao encontrado!");
+            this.setVisible(true);
+        }
+        
+        //CASO EXISTA, MOSTRA O NOME E ABRE A TELA DE EDIÇAO
+        else{
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Peça: " + peca.getNome());
+            EditarPeca editPeca = new EditarPeca(peca);
+            editPeca.setVisible(true);
+        }
     }//GEN-LAST:event_jButtonEditPecaActionPerformed
 
     //EDITAR INFORMAÇOES DE SERVIÇO

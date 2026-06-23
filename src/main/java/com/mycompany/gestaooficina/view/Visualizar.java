@@ -5,6 +5,7 @@
 package com.mycompany.gestaooficina.view;
 
 import com.mycompany.gestaooficina.control.GerenciamentoClientes;
+import com.mycompany.gestaooficina.control.GerenciamentoPecas;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,7 +35,7 @@ public class Visualizar extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButtonVerClientes = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonVerPeca = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -52,8 +53,9 @@ public class Visualizar extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jButton3.setText("Ver Veiculos");
 
-        jButton4.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
-        jButton4.setText("Ver Peça");
+        jButtonVerPeca.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonVerPeca.setText("Ver Peça");
+        jButtonVerPeca.addActionListener(this::jButtonVerPecaActionPerformed);
 
         jButton5.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jButton5.setText("Ver Ordem de Serviço");
@@ -82,7 +84,7 @@ public class Visualizar extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonVerPeca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(173, 173, 173))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -111,7 +113,7 @@ public class Visualizar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(jButtonVerPeca)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -136,6 +138,14 @@ public class Visualizar extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, genClient.visualizarClientes());
         this.setVisible(true);
     }//GEN-LAST:event_jButtonVerClientesActionPerformed
+
+    private void jButtonVerPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerPecaActionPerformed
+        // TODO add your handling code here:
+        GerenciamentoPecas genPeca = GerenciamentoPecas.getInstance();
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, genPeca.visuzalizarPecas());
+        this.setVisible(true);
+    }//GEN-LAST:event_jButtonVerPecaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,10 +175,10 @@ public class Visualizar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonVerClientes;
+    private javax.swing.JButton jButtonVerPeca;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

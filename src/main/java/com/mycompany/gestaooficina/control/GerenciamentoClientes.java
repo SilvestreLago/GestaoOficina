@@ -52,7 +52,7 @@ public class GerenciamentoClientes {
     }
     
     //EDITAR UM CLIENTE
-    public void editarCliente(int codigo, String nome, int cpf, String telefone, String email){
+    public void editarCliente(int codigo, String nome, String cpf, String telefone, String email){
         for(Cliente cliente: this.clientes){
             if(codigo == cliente.getCodigo()){
                 cliente.setNome(nome);
