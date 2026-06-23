@@ -27,7 +27,6 @@ public class GerenciamentoPecas {
         }
         return instance;
     }
-    
     //BUSCAR CLIENTE POR PECA
     public Peca buscarPeca(int codigo){
         for(Peca peca: this.pecas){
