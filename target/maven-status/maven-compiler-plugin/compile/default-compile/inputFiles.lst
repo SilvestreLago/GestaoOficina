@@ -1,6 +1,7 @@
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/GestaoOficina.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoClientes.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoPecas.java
+/home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoServicos.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Cliente.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Funcionario.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/OrdemServico.java

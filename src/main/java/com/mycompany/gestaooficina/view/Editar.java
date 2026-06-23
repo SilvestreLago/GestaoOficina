@@ -6,8 +6,10 @@ package com.mycompany.gestaooficina.view;
 
 import com.mycompany.gestaooficina.control.GerenciamentoClientes;
 import com.mycompany.gestaooficina.control.GerenciamentoPecas;
+import com.mycompany.gestaooficina.control.GerenciamentoServicos;
 import com.mycompany.gestaooficina.model.Cliente;
 import com.mycompany.gestaooficina.model.Peca;
+import com.mycompany.gestaooficina.model.Servico;
 import javax.swing.JOptionPane;
 
 /**
@@ -201,9 +203,28 @@ public class Editar extends javax.swing.JFrame {
     //EDITAR INFORMAÇOES DE SERVIÇO
     private void jButtonEditServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditServicoActionPerformed
         // TODO add your handling code here:
-        EditarServico editServ = new EditarServico();
-        editServ.setVisible(true);
+        
+        //SOLICITA O CODIGO DO SERVIÇO PARA SER EDITADO
         this.setVisible(false);
+        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do serviço: "));
+        
+        //PROCURA SE O SERVIÇO EXISTE
+        GerenciamentoServicos genServico = GerenciamentoServicos.getInstance();
+        Servico servico = genServico.buscarServico(busca);
+        
+        //CASO O SERVIÇO NAO EXISTA, INFORMA QUE NÃO FOI ENCONTRADO
+        if(servico == null){
+            JOptionPane.showMessageDialog(null, "Serviço nao encontrado!");
+            this.setVisible(true);
+        }
+        
+        //CASO EXISTA, MOSTRA O NOME E ABRE A TELA DE EDIÇAO
+        else{
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Serviço: " + servico.getNome());
+            EditarServico editServico = new EditarServico(servico);
+            editServico.setVisible(true);
+        }
     }//GEN-LAST:event_jButtonEditServicoActionPerformed
 
     //EDITAR ORDEM DE SERVIÇO

@@ -159,13 +159,11 @@ public class EditarPeca extends javax.swing.JFrame {
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         // TODO add your handling code here:
         
-        
         String nome = jTextFieldNome.getText();
         double preco = Double.parseDouble(jTextFieldPreco.getText());
         int quantidade = Integer.parseInt(jTextFieldQuantidade.getText());
         
         GerenciamentoPecas genPeca = GerenciamentoPecas.getInstance();
-        System.out.println("E = " + codigo);
         genPeca.editarPeca(codigo, nome, preco, quantidade);
         
         this.setVisible(false);

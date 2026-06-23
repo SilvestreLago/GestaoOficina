@@ -1,5 +1,6 @@
 com/mycompany/gestaooficina/view/CadastrarVeiculo.class
 com/mycompany/gestaooficina/model/Servico.class
+com/mycompany/gestaooficina/control/GerenciamentoServicos.class
 com/mycompany/gestaooficina/model/Funcionario.class
 com/mycompany/gestaooficina/control/GerenciamentoPecas.class
 com/mycompany/gestaooficina/view/EditarPeca.class

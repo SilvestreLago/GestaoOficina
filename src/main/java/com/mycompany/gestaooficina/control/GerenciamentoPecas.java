@@ -54,7 +54,6 @@ public class GerenciamentoPecas {
     
     //EDITAR UMA PECA
     public void editarPeca(int codigo, String nome, double preco, int quantidade){
-        System.out.println("G = " + codigo);
         for (Peca peca: this.pecas){
             if(codigo == peca.getCodigo()){
                 peca.setNome(nome);
