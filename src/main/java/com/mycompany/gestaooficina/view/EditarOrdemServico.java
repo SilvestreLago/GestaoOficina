@@ -4,6 +4,10 @@
  */
 package com.mycompany.gestaooficina.view;
 
+import com.mycompany.gestaooficina.control.GerenciamentoOrdemServico;
+import com.mycompany.gestaooficina.model.OrdemServico;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author silvestre
@@ -15,8 +19,16 @@ public class EditarOrdemServico extends javax.swing.JFrame {
     /**
      * Creates new form EditarOrdemServico
      */
-    public EditarOrdemServico() {
+    private int codigo;
+    
+    public EditarOrdemServico(OrdemServico os) {
         initComponents();
+        this.codigo = os.getCodigo();
+        this.jTextField1.setText("" + os.getCodigoVeiculo());
+        this.jTextField2.setText("" + os.getCodigoCliente());
+        this.jTextField3.setText("" + os.getCodigoMecanico());
+        this.jTextField4.setText("" + os.getCodigoPeca());
+        this.jTextField5.setText("" + os.getCodigoServico());
     }
 
     /**
@@ -168,7 +180,71 @@ public class EditarOrdemServico extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String codVeicStr = jTextField1.getText();
+        String codClienteStr = jTextField2.getText();
+        String codMecStr = jTextField3.getText();
+        String codPecaStr = jTextField4.getText();
+        String codServicoStr = jTextField5.getText();
+        
+        if (codVeicStr.isEmpty() || codClienteStr.isEmpty() || codMecStr.isEmpty() || codPecaStr.isEmpty() || codServicoStr.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+            return;
+        }
+        
+        int codVeiculo, codCliente, codMecanico, codPeca, codServico;
+        try {
+            codVeiculo = Integer.parseInt(codVeicStr);
+            codCliente = Integer.parseInt(codClienteStr);
+            codMecanico = Integer.parseInt(codMecStr);
+            codPeca = Integer.parseInt(codPecaStr);
+            codServico = Integer.parseInt(codServicoStr);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Todos os codigos devem ser numericos!");
+            return;
+        }
+        
+        com.mycompany.gestaooficina.control.GerenciamentoClientes genCliente = com.mycompany.gestaooficina.control.GerenciamentoClientes.getInstance();
+        if (genCliente.buscarCliente(codCliente) == null) {
+            JOptionPane.showMessageDialog(null, "Cliente (" + codCliente + ") nao encontrado!");
+            return;
+        }
+        
+        com.mycompany.gestaooficina.control.GerenciamentoVeiculos genVeiculo = com.mycompany.gestaooficina.control.GerenciamentoVeiculos.getInstance();
+        com.mycompany.gestaooficina.model.Veiculo veiculo = genVeiculo.buscarVeiculo(codVeiculo);
+        if (veiculo == null) {
+            JOptionPane.showMessageDialog(null, "Veiculo (" + codVeiculo + ") nao encontrado!");
+            return;
+        }
+        if (veiculo.getCodigoCliente() != codCliente) {
+            JOptionPane.showMessageDialog(null, "O veiculo informado nao pertence ao cliente informado!");
+            return;
+        }
+        
+        com.mycompany.gestaooficina.control.GerenciamentoFuncionarios genFuncionario = com.mycompany.gestaooficina.control.GerenciamentoFuncionarios.getInstance();
+        if (genFuncionario.buscarFuncionario(codMecanico) == null) {
+            JOptionPane.showMessageDialog(null, "Mecanico (" + codMecanico + ") nao encontrado!");
+            return;
+        }
+        
+        com.mycompany.gestaooficina.control.GerenciamentoPecas genPeca = com.mycompany.gestaooficina.control.GerenciamentoPecas.getInstance();
+        if (genPeca.buscarPeca(codPeca) == null) {
+            JOptionPane.showMessageDialog(null, "Peca (" + codPeca + ") nao encontrada!");
+            return;
+        }
+        
+        com.mycompany.gestaooficina.control.GerenciamentoServicos genServico = com.mycompany.gestaooficina.control.GerenciamentoServicos.getInstance();
+        if (genServico.buscarServico(codServico) == null) {
+            JOptionPane.showMessageDialog(null, "Servico (" + codServico + ") nao encontrado!");
+            return;
+        }
+        
+        GerenciamentoOrdemServico genOS = GerenciamentoOrdemServico.getInstance();
+        genOS.editarOrdemServico(codigo, codVeiculo, codCliente, codMecanico, codPeca, codServico);
+        
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Ordem de Servico (" + codigo + ") editada com sucesso!");
+        Editar edit = new Editar();
+        edit.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -205,7 +281,7 @@ public class EditarOrdemServico extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new EditarOrdemServico().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new EditarOrdemServico(new com.mycompany.gestaooficina.model.OrdemServico(0,0,0,0,0)).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

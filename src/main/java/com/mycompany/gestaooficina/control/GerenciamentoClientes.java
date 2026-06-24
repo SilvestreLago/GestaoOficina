@@ -5,7 +5,9 @@
 package com.mycompany.gestaooficina.control;
 
 import com.mycompany.gestaooficina.model.Cliente;
+import com.mycompany.gestaooficina.model.Veiculo;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -62,6 +64,20 @@ public class GerenciamentoClientes {
                 return;
             }
         }
+    }
+    
+    //REMOVER UM CLIENTE (E EM CASCATA OS VEICULOS E ORDENS DE SERVICO ATRELADOS A ELE)
+    public void removerCliente(int codigo){
+        //REMOVE EM CASCATA TODOS OS VEICULOS DO CLIENTE (que por sua vez removem as OS atreladas a eles)
+        GerenciamentoVeiculos genVeiculos = GerenciamentoVeiculos.getInstance();
+        List<Veiculo> veiculosDoCliente = genVeiculos.buscarVeiculosPorCliente(codigo);
+        for (Veiculo veiculo : veiculosDoCliente) {
+            genVeiculos.removerVeiculo(veiculo.getCodigo());
+        }
+        //GARANTE QUE NAO RESTEM ORDENS DE SERVICO LIGADAS DIRETAMENTE AO CLIENTE
+        GerenciamentoOrdemServico.getInstance().removerOrdemServicoPorCliente(codigo);
+        
+        this.clientes.removeIf(cliente -> cliente.getCodigo() == codigo);
     }
     
 }

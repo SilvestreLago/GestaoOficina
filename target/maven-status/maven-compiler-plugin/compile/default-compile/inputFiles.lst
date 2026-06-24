@@ -1,12 +1,16 @@
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/GestaoOficina.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoClientes.java
+/home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoFuncionarios.java
+/home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoOrdemServico.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoPecas.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoServicos.java
+/home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoVeiculos.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Cliente.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Funcionario.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/OrdemServico.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Peca.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Servico.java
+/home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/TipoFuncionario.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Veiculo.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/view/Cadastrar.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/view/CadastrarCliente.java
@@ -24,4 +28,5 @@
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/view/EditarVeiculo.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/view/Home.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/view/Login.java
+/home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/view/Remover.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/view/Visualizar.java

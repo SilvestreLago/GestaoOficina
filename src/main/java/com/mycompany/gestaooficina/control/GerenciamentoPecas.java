@@ -4,7 +4,6 @@
  */
 package com.mycompany.gestaooficina.control;
 
-import com.mycompany.gestaooficina.model.Cliente;
 import com.mycompany.gestaooficina.model.Peca;
 import java.util.LinkedList;
 
@@ -28,7 +27,7 @@ public class GerenciamentoPecas {
         return instance;
     }
     
-    //BUSCAR CLIENTE POR PECA
+    //BUSCAR PECA POR CODIGO
     public Peca buscarPeca(int codigo){
         for(Peca peca: this.pecas){
             if(peca.getCodigo() == codigo){
@@ -63,4 +62,10 @@ public class GerenciamentoPecas {
             }
         }
     }
+
+    //REMOVER UMA PECA
+    public void removerPeca(int codigo){
+        this.pecas.removeIf(peca -> peca.getCodigo() == codigo);
+    }
+    
 }

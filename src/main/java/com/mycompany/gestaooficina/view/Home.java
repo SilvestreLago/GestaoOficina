@@ -33,6 +33,7 @@ public class Home extends javax.swing.JFrame {
         jButtonFuncEdit = new javax.swing.JButton();
         jButtonFuncCad = new javax.swing.JButton();
         jButtonFuncVisu = new javax.swing.JButton();
+        jButtonFuncRemove = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +72,15 @@ public class Home extends javax.swing.JFrame {
         });
         jButtonFuncVisu.addActionListener(this::jButtonFuncVisuActionPerformed);
 
+        jButtonFuncRemove.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonFuncRemove.setText("Funçoes de Remoçao");
+        jButtonFuncRemove.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jButtonFuncRemoveFocusGained(evt);
+            }
+        });
+        jButtonFuncRemove.addActionListener(this::jButtonFuncRemoveActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,6 +92,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(187, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonFuncRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jButtonFuncCad, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonFuncEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -101,7 +112,9 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jButtonFuncCad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonFuncEdit)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonFuncRemove)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
@@ -147,6 +160,17 @@ public class Home extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonFuncVisuActionPerformed
 
+    private void jButtonFuncRemoveFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jButtonFuncRemoveFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonFuncRemoveFocusGained
+
+    private void jButtonFuncRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncRemoveActionPerformed
+        // TODO add your handling code here:
+        Remover remove = new Remover();
+        remove.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonFuncRemoveActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -175,6 +199,7 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFuncCad;
     private javax.swing.JButton jButtonFuncEdit;
+    private javax.swing.JButton jButtonFuncRemove;
     private javax.swing.JButton jButtonFuncVisu;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;

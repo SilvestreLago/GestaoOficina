@@ -4,6 +4,11 @@
  */
 package com.mycompany.gestaooficina.view;
 
+import com.mycompany.gestaooficina.control.GerenciamentoClientes;
+import com.mycompany.gestaooficina.control.GerenciamentoVeiculos;
+import com.mycompany.gestaooficina.model.Veiculo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author silvestre
@@ -15,8 +20,17 @@ public class EditarVeiculo extends javax.swing.JFrame {
     /**
      * Creates new form EditarVeiculo
      */
-    public EditarVeiculo() {
+    private int codigo;
+    
+    public EditarVeiculo(Veiculo veiculo) {
         initComponents();
+        this.codigo = veiculo.getCodigo();
+        this.jTextField1.setText("" + veiculo.getCodigoCliente());
+        this.jTextField2.setText(veiculo.getPlaca());
+        this.jTextField3.setText(veiculo.getModelo());
+        this.jTextField4.setText(veiculo.getMarca());
+        this.jTextField5.setText(veiculo.getAno());
+        this.jTextField6.setText(veiculo.getQuilometragem());
     }
 
     /**
@@ -77,6 +91,7 @@ public class EditarVeiculo extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 51, 255));
         jButton1.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jButton1.setText("Editar");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButtonVoltar.setBackground(new java.awt.Color(255, 0, 0));
         jButtonVoltar.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
@@ -201,7 +216,43 @@ public class EditarVeiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
-    /**
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        String codClienteStr = jTextField1.getText();
+        String placa = jTextField2.getText();
+        String modelo = jTextField3.getText();
+        String marca = jTextField4.getText();
+        String ano = jTextField5.getText();
+        String quilometragem = jTextField6.getText();
+        
+        if (codClienteStr.isEmpty() || placa.isEmpty() || modelo.isEmpty() || marca.isEmpty() || ano.isEmpty() || quilometragem.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+            return;
+        }
+        
+        int codigoCliente;
+        try {
+            codigoCliente = Integer.parseInt(codClienteStr);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Codigo de cliente invalido!");
+            return;
+        }
+        
+        GerenciamentoClientes genCliente = GerenciamentoClientes.getInstance();
+        if (genCliente.buscarCliente(codigoCliente) == null) {
+            JOptionPane.showMessageDialog(null, "Cliente (" + codigoCliente + ") nao encontrado! Informe um codigo de cliente valido.");
+            return;
+        }
+        
+        GerenciamentoVeiculos genVeic = GerenciamentoVeiculos.getInstance();
+        genVeic.editarVeiculo(codigo, codigoCliente, placa, modelo, marca, ano, quilometragem);
+        
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Veiculo: " + placa + "(" + codigo + ") editado com sucesso!");
+        Editar edit = new Editar();
+        edit.setVisible(true);
+    }
+
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -223,7 +274,7 @@ public class EditarVeiculo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new EditarVeiculo().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new EditarVeiculo(new com.mycompany.gestaooficina.model.Veiculo(0,"","","","","")).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

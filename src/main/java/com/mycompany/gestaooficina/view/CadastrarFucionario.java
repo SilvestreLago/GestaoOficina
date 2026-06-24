@@ -4,6 +4,11 @@
  */
 package com.mycompany.gestaooficina.view;
 
+import com.mycompany.gestaooficina.control.GerenciamentoFuncionarios;
+import com.mycompany.gestaooficina.model.Funcionario;
+import com.mycompany.gestaooficina.model.TipoFuncionario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author silvestre
@@ -160,7 +165,28 @@ public class CadastrarFucionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // CADASTRAR FUNCIONARIO
+        String nome = jTextField1.getText();
+        String cpf = jTextField2.getText();
+        String salarioStr = jTextField3.getText();
+        String tipo = jRadioButton1.isSelected() ? "Mecanico" : "Atendente";
+        
+        if (nome.isEmpty() || cpf.isEmpty() || salarioStr.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+            return;
+        }
+        
+        double salario = Double.parseDouble(salarioStr);
+        TipoFuncionario tipoFuncionario = TipoFuncionario.fromString(tipo);
+        GerenciamentoFuncionarios genFunc = GerenciamentoFuncionarios.getInstance();
+        Funcionario funcionario = new Funcionario(nome, cpf, salario, tipoFuncionario);
+        genFunc.cadastrarFuncionario(funcionario);
+        
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Funcionario: " + nome + "(" + funcionario.getCodigo() + ") adicionado com sucesso!");
+        
+        CadastrarFucionario cadFunc = new CadastrarFucionario();
+        cadFunc.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

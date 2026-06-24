@@ -4,6 +4,11 @@
  */
 package com.mycompany.gestaooficina.view;
 
+import com.mycompany.gestaooficina.control.GerenciamentoClientes;
+import com.mycompany.gestaooficina.control.GerenciamentoVeiculos;
+import com.mycompany.gestaooficina.model.Veiculo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author silvestre
@@ -82,6 +87,7 @@ public class CadastrarVeiculo extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 51, 255));
         jButton1.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jButton1.setText("Cadastrar");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButtonVoltar.setBackground(new java.awt.Color(255, 0, 0));
         jButtonVoltar.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
@@ -201,7 +207,46 @@ public class CadastrarVeiculo extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    /**
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // CADASTRAR VEICULO
+        String codClienteStr = jTextField1.getText();
+        String placa = jTextField2.getText();
+        String modelo = jTextField3.getText();
+        String marca = jTextField4.getText();
+        String ano = jTextField5.getText();
+        String quilometragem = jTextField6.getText();
+        
+        if (codClienteStr.isEmpty() || placa.isEmpty() || modelo.isEmpty() || marca.isEmpty() || ano.isEmpty() || quilometragem.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+            return;
+        }
+        
+        int codigoCliente;
+        try {
+            codigoCliente = Integer.parseInt(codClienteStr);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Codigo de cliente invalido!");
+            return;
+        }
+        
+        GerenciamentoClientes genCliente = GerenciamentoClientes.getInstance();
+        if (genCliente.buscarCliente(codigoCliente) == null) {
+            JOptionPane.showMessageDialog(null, "Cliente (" + codigoCliente + ") nao encontrado! Cadastre o cliente antes de atrelar um veiculo a ele.");
+            return;
+        }
+        
+        GerenciamentoVeiculos genVeic = GerenciamentoVeiculos.getInstance();
+        Veiculo veiculo = new Veiculo(codigoCliente, placa, modelo, marca, ano, quilometragem);
+        genVeic.cadastrarVeiculo(veiculo);
+        
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Veiculo: " + placa + "(" + veiculo.getCodigo() + ") adicionado com sucesso!");
+        
+        CadastrarVeiculo cadVeic = new CadastrarVeiculo();
+        cadVeic.setVisible(true);
+    }
+
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {

@@ -4,6 +4,11 @@
  */
 package com.mycompany.gestaooficina.view;
 
+import com.mycompany.gestaooficina.control.GerenciamentoFuncionarios;
+import com.mycompany.gestaooficina.model.Funcionario;
+import com.mycompany.gestaooficina.model.TipoFuncionario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author silvestre
@@ -15,8 +20,19 @@ public class EditarFuncionario extends javax.swing.JFrame {
     /**
      * Creates new form EditarFuncionario
      */
-    public EditarFuncionario() {
+    private int codigo;
+    
+    public EditarFuncionario(Funcionario funcionario) {
         initComponents();
+        this.codigo = funcionario.getCodigo();
+        this.jTextField1.setText(funcionario.getNome());
+        this.jTextField2.setText(funcionario.getCpf());
+        this.jTextField3.setText("" + funcionario.getSalario());
+        if (funcionario.getTipo() == TipoFuncionario.MECANICO) {
+            this.jRadioButton1.setSelected(true);
+        } else {
+            this.jRadioButton2.setSelected(true);
+        }
     }
 
     /**
@@ -153,7 +169,26 @@ public class EditarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // EDITAR FUNCIONARIO
+        String nome = jTextField1.getText();
+        String cpf = jTextField2.getText();
+        String salarioStr = jTextField3.getText();
+        String tipo = jRadioButton1.isSelected() ? "Mecanico" : "Atendente";
+        
+        if (nome.isEmpty() || cpf.isEmpty() || salarioStr.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+            return;
+        }
+        
+        double salario = Double.parseDouble(salarioStr);
+        TipoFuncionario tipoFuncionario = TipoFuncionario.fromString(tipo);
+        GerenciamentoFuncionarios genFunc = GerenciamentoFuncionarios.getInstance();
+        genFunc.editarFuncionario(codigo, nome, cpf, salario, tipoFuncionario);
+        
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Funcionario: " + nome + "(" + codigo + ") editado com sucesso!");
+        Editar edit = new Editar();
+        edit.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -197,7 +232,7 @@ public class EditarFuncionario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new EditarFuncionario().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new EditarFuncionario(new com.mycompany.gestaooficina.model.Funcionario("","",0,com.mycompany.gestaooficina.model.TipoFuncionario.MECANICO)).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,7 +4,6 @@
  */
 package com.mycompany.gestaooficina.control;
 
-import com.mycompany.gestaooficina.model.Cliente;
 import com.mycompany.gestaooficina.model.Servico;
 import java.util.LinkedList;
 
@@ -64,4 +63,10 @@ public class GerenciamentoServicos {
             }
         }
     }
+
+    //REMOVER UM SERVIÇO
+    public void removerServico(int codigo){
+        this.servicos.removeIf(servico -> servico.getCodigo() == codigo);
+    }
+    
 }

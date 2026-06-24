@@ -1,4 +1,5 @@
 com/mycompany/gestaooficina/view/CadastrarVeiculo.class
+com/mycompany/gestaooficina/control/GerenciamentoFuncionarios.class
 com/mycompany/gestaooficina/model/Servico.class
 com/mycompany/gestaooficina/control/GerenciamentoServicos.class
 com/mycompany/gestaooficina/model/Funcionario.class
@@ -7,12 +8,15 @@ com/mycompany/gestaooficina/view/EditarPeca.class
 com/mycompany/gestaooficina/view/Cadastrar.class
 com/mycompany/gestaooficina/view/Editar.class
 com/mycompany/gestaooficina/view/Home$2.class
+com/mycompany/gestaooficina/model/TipoFuncionario.class
 com/mycompany/gestaooficina/GestaoOficina.class
 com/mycompany/gestaooficina/model/Cliente.class
 com/mycompany/gestaooficina/view/Visualizar.class
 com/mycompany/gestaooficina/view/EditarFuncionario.class
 com/mycompany/gestaooficina/view/EditarOrdemServico.class
 com/mycompany/gestaooficina/view/Cadastrar$1.class
+com/mycompany/gestaooficina/view/Home$4.class
+com/mycompany/gestaooficina/view/Remover.class
 com/mycompany/gestaooficina/control/GerenciamentoClientes.class
 com/mycompany/gestaooficina/view/CadastrarFucionario.class
 com/mycompany/gestaooficina/view/CadastrarPeca.class
@@ -22,9 +26,11 @@ com/mycompany/gestaooficina/view/Home$1.class
 com/mycompany/gestaooficina/view/Home.class
 com/mycompany/gestaooficina/view/EditarVeiculo.class
 com/mycompany/gestaooficina/model/OrdemServico.class
+com/mycompany/gestaooficina/control/GerenciamentoVeiculos.class
 com/mycompany/gestaooficina/view/CadastrarCliente.class
 com/mycompany/gestaooficina/view/CadastrarOrdemServico.class
 com/mycompany/gestaooficina/view/Home$3.class
+com/mycompany/gestaooficina/control/GerenciamentoOrdemServico.class
 com/mycompany/gestaooficina/view/EditarCliente.class
 com/mycompany/gestaooficina/view/EditarServico.class
 com/mycompany/gestaooficina/view/Login.class

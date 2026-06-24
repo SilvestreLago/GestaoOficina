@@ -5,6 +5,12 @@
 package com.mycompany.gestaooficina.view;
 
 import com.mycompany.gestaooficina.control.GerenciamentoClientes;
+import com.mycompany.gestaooficina.control.GerenciamentoFuncionarios;
+import com.mycompany.gestaooficina.control.GerenciamentoVeiculos;
+import com.mycompany.gestaooficina.control.GerenciamentoOrdemServico;
+import com.mycompany.gestaooficina.model.Funcionario;
+import com.mycompany.gestaooficina.model.Veiculo;
+import com.mycompany.gestaooficina.model.OrdemServico;
 import com.mycompany.gestaooficina.control.GerenciamentoPecas;
 import com.mycompany.gestaooficina.control.GerenciamentoServicos;
 import com.mycompany.gestaooficina.model.Cliente;
@@ -135,7 +141,6 @@ public class Editar extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //SOLICITA O CODIGO DO CLIENTE PARA SER EDITADO
-        this.setVisible(false);
         int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do cliente: "));
         
         //PROCURA SE O CLIENTE EXISTE
@@ -159,18 +164,50 @@ public class Editar extends javax.swing.JFrame {
 
     //EDITAR FUNCIONARIO
     private void jButtonEditFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditFuncActionPerformed
-        // TODO add your handling code here:
-        EditarFuncionario editFunc = new EditarFuncionario();
-        editFunc.setVisible(true);
-        this.setVisible(false);
+        //SOLICITA O CODIGO DO FUNCIONARIO PARA SER EDITADO
+        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do funcionario: "));
+        
+        //PROCURA SE O FUNCIONARIO EXISTE
+        GerenciamentoFuncionarios genFunc = GerenciamentoFuncionarios.getInstance();
+        Funcionario funcionario = genFunc.buscarFuncionario(busca);
+        
+        //CASO O FUNCIONARIO NAO EXISTA, INFORMA QUE NAO FOI ENCONTRADO
+        if (funcionario == null) {
+            JOptionPane.showMessageDialog(null, "Funcionario nao encontrado!");
+            this.setVisible(true);
+        }
+        
+        //CASO EXISTA, MOSTRA O NOME E ABRE A TELA DE EDICAO
+        else {
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Funcionario: " + funcionario.getNome());
+            EditarFuncionario editFunc = new EditarFuncionario(funcionario);
+            editFunc.setVisible(true);
+        }
     }//GEN-LAST:event_jButtonEditFuncActionPerformed
 
     //EDITAR VEICULO
     private void jButtonEditVeicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditVeicActionPerformed
-        // TODO add your handling code here:
-        EditarVeiculo editVeic = new EditarVeiculo();
-        editVeic.setVisible(true);
-        this.setVisible(false);
+        //SOLICITA O CODIGO DO VEICULO PARA SER EDITADO
+        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do veiculo: "));
+        
+        //PROCURA SE O VEICULO EXISTE
+        GerenciamentoVeiculos genVeic = GerenciamentoVeiculos.getInstance();
+        Veiculo veiculo = genVeic.buscarVeiculo(busca);
+        
+        //CASO O VEICULO NAO EXISTA, INFORMA QUE NAO FOI ENCONTRADO
+        if (veiculo == null) {
+            JOptionPane.showMessageDialog(null, "Veiculo nao encontrado!");
+            this.setVisible(true);
+        }
+        
+        //CASO EXISTA, MOSTRA A PLACA E ABRE A TELA DE EDICAO
+        else {
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Veiculo: " + veiculo.getPlaca());
+            EditarVeiculo editVeic = new EditarVeiculo(veiculo);
+            editVeic.setVisible(true);
+        }
     }//GEN-LAST:event_jButtonEditVeicActionPerformed
 
     //EDITAR PEÇA EM ESTOQUE
@@ -178,7 +215,6 @@ public class Editar extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //SOLICITA O CODIGO DA PEÇA PARA SER EDITADA
-        this.setVisible(false);
         int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo da peça: "));
         
         //PROCURA SE A PEÇA EXISTE
@@ -205,7 +241,6 @@ public class Editar extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //SOLICITA O CODIGO DO SERVIÇO PARA SER EDITADO
-        this.setVisible(false);
         int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do serviço: "));
         
         //PROCURA SE O SERVIÇO EXISTE
@@ -229,10 +264,26 @@ public class Editar extends javax.swing.JFrame {
 
     //EDITAR ORDEM DE SERVIÇO
     private void jButtonEditOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditOSActionPerformed
-        // TODO add your handling code here:
-        EditarOrdemServico editOS = new EditarOrdemServico();
-        editOS.setVisible(true);
-        this.setVisible(false);
+        //SOLICITA O CODIGO DA OS PARA SER EDITADA
+        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo da Ordem de Servico: "));
+        
+        //PROCURA SE A OS EXISTE
+        GerenciamentoOrdemServico genOS = GerenciamentoOrdemServico.getInstance();
+        OrdemServico os = genOS.buscarOrdemServico(busca);
+        
+        //CASO A OS NAO EXISTA, INFORMA QUE NAO FOI ENCONTRADA
+        if (os == null) {
+            JOptionPane.showMessageDialog(null, "Ordem de Servico nao encontrada!");
+            this.setVisible(true);
+        }
+        
+        //CASO EXISTA, MOSTRA O CODIGO E ABRE A TELA DE EDICAO
+        else {
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "OS: " + os.getCodigo());
+            EditarOrdemServico editOS = new EditarOrdemServico(os);
+            editOS.setVisible(true);
+        }
     }//GEN-LAST:event_jButtonEditOSActionPerformed
 
     //VOLTAR PARA HOME

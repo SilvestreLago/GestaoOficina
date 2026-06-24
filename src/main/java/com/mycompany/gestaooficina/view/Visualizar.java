@@ -5,6 +5,9 @@
 package com.mycompany.gestaooficina.view;
 
 import com.mycompany.gestaooficina.control.GerenciamentoClientes;
+import com.mycompany.gestaooficina.control.GerenciamentoFuncionarios;
+import com.mycompany.gestaooficina.control.GerenciamentoVeiculos;
+import com.mycompany.gestaooficina.control.GerenciamentoOrdemServico;
 import com.mycompany.gestaooficina.control.GerenciamentoPecas;
 import com.mycompany.gestaooficina.control.GerenciamentoServicos;
 import javax.swing.JOptionPane;
@@ -46,6 +49,7 @@ public class Visualizar extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jButton1.setText("Ver Funcionarios");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButtonVerClientes.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jButtonVerClientes.setText("Ver Clientes");
@@ -53,6 +57,7 @@ public class Visualizar extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jButton3.setText("Ver Veiculos");
+        jButton3.addActionListener(this::jButton3ActionPerformed);
 
         jButtonVerPeca.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jButtonVerPeca.setText("Ver Peça");
@@ -157,10 +162,30 @@ public class Visualizar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVerPecaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        //VER ORDENS DE SERVICO
+        GerenciamentoOrdemServico genOS = GerenciamentoOrdemServico.getInstance();
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, genOS.visualizarOrdensServico());
+        this.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    /**
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        //VER FUNCIONARIOS
+        GerenciamentoFuncionarios genFunc = GerenciamentoFuncionarios.getInstance();
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, genFunc.visualizarFuncionarios());
+        this.setVisible(true);
+    }
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        //VER VEICULOS
+        GerenciamentoVeiculos genVeic = GerenciamentoVeiculos.getInstance();
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, genVeic.visualizarVeiculos());
+        this.setVisible(true);
+    }
+
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
