@@ -173,7 +173,6 @@ public class Buscar extends javax.swing.JFrame {
         // TODO add your handling code here:
         GerenciamentoPecas genPeca = GerenciamentoPecas.getInstance();
         var textoCod = JOptionPane.showInputDialog(null, "Digite o codigo que deseja buscar");
-        this.setVisible(false);
         
         Peca os = null;
         int cod = 0;
@@ -196,7 +195,7 @@ public class Buscar extends javax.swing.JFrame {
     private void jButtonVerOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerOsActionPerformed
         GerenciamentoOrdemServico genOS = GerenciamentoOrdemServico.getInstance();
         var cod = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o codigo que deseja buscar"));
-        this.setVisible(false);
+
         var os = genOS.buscarOrdemServico(cod);
         if(os == null){
             JOptionPane.showMessageDialog(null, "Ordem de serviço nao encontrada.");
@@ -209,7 +208,6 @@ public class Buscar extends javax.swing.JFrame {
     private void jButtonVerServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerServicoActionPerformed
         GerenciamentoServicos genServico = GerenciamentoServicos.getInstance();
         var textoCod = JOptionPane.showInputDialog(null, "Digite o codigo que deseja buscar");
-        this.setVisible(false);
         
         Servico os = null;
         int cod = 0;
@@ -238,9 +236,7 @@ public class Buscar extends javax.swing.JFrame {
     private void jButtonVerClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerClientesActionPerformed
         GerenciamentoClientes genClient = GerenciamentoClientes.getInstance();
         var textoCod = JOptionPane.showInputDialog(null, "Digite o codigo que deseja buscar");
-        
-        this.setVisible(false);
-        
+                
         Cliente os = null;
         int cod = 0;
         try {
@@ -262,7 +258,6 @@ public class Buscar extends javax.swing.JFrame {
     private void jButtonVerFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerFuncionarioActionPerformed
         GerenciamentoFuncionarios genFunc = GerenciamentoFuncionarios.getInstance();
         var textoCod = JOptionPane.showInputDialog(null, "Digite o codigo que deseja buscar");
-        this.setVisible(false);
         
         int cod = 0;
         Funcionario os = null;
@@ -285,7 +280,6 @@ public class Buscar extends javax.swing.JFrame {
     private void jButtonVerVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerVeiculoActionPerformed
         GerenciamentoVeiculos genVeic = GerenciamentoVeiculos.getInstance();
         var textoCod = JOptionPane.showInputDialog(null, "Digite o codigo que deseja buscar");
-        this.setVisible(false);
         
         Veiculo os = null;
         int cod = 0;

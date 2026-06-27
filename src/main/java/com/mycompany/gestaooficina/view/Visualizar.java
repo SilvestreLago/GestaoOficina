@@ -165,7 +165,6 @@ public class Visualizar extends javax.swing.JFrame {
 
     private void jButtonVerServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerServicoActionPerformed
         GerenciamentoServicos genServico = GerenciamentoServicos.getInstance();
-        this.setVisible(false);
         var servicos = genServico.resumirServicos();
         if(servicos == "") servicos = "Nao ha servicos disponiveis";
         JOptionPane.showMessageDialog(null, servicos);
@@ -180,7 +179,6 @@ public class Visualizar extends javax.swing.JFrame {
 
     private void jButtonVerClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerClientesActionPerformed
         GerenciamentoClientes genClient = GerenciamentoClientes.getInstance();
-        this.setVisible(false);
         var cliente = genClient.resumirClientes();
         if(cliente == "") cliente = "Nao ha clientes disponiveis";
         JOptionPane.showMessageDialog(null, cliente);
@@ -189,7 +187,6 @@ public class Visualizar extends javax.swing.JFrame {
 
     private void jButtonVerPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerPecaActionPerformed
         GerenciamentoPecas genPeca = GerenciamentoPecas.getInstance();
-        this.setVisible(false);
         var peca = genPeca.resumirPecas();
         if(peca == "") peca = "Nao ha pecas disponiveis";
         JOptionPane.showMessageDialog(null, peca);
@@ -198,7 +195,6 @@ public class Visualizar extends javax.swing.JFrame {
 
     private void jButtonVerOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerOSActionPerformed
         GerenciamentoOrdemServico genOS = GerenciamentoOrdemServico.getInstance();
-        this.setVisible(false);
         var os = genOS.resumirOs();
         if(os == "") os = "Nao ha ordens de servicos disponiveis";
         JOptionPane.showMessageDialog(null, os);
@@ -207,7 +203,6 @@ public class Visualizar extends javax.swing.JFrame {
 
     private void jButtonVerFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerFuncActionPerformed
         GerenciamentoFuncionarios genFunc = GerenciamentoFuncionarios.getInstance();
-        this.setVisible(false);
         var func = genFunc.resumirFuncionarios();
         if(func == "") func = "Nao ha funcionarios disponiveis";
         JOptionPane.showMessageDialog(null, func);
@@ -216,7 +211,6 @@ public class Visualizar extends javax.swing.JFrame {
 
     private void jButtonVerVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerVeiculoActionPerformed
         GerenciamentoVeiculos genVeic = GerenciamentoVeiculos.getInstance();
-        this.setVisible(false);
         var veiculos = genVeic.resumirVeiculos();
         if(veiculos == "") veiculos = "Nao ha veiculos disponiveis";
         JOptionPane.showMessageDialog(null, veiculos);
