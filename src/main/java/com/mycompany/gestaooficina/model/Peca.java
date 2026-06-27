@@ -5,6 +5,7 @@
 package com.mycompany.gestaooficina.model;
 
 import com.mycompany.gestaooficina.control.GerenciamentoPecas;
+import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 
 /**
  *
@@ -65,5 +66,21 @@ public class Peca {
                 "\nPreco: " + this.preco +
                 "\nQuantidade: " + this.quantidade;
         return conteudo;
+    }
+
+    //CONVERTE A PECA EM UMA LINHA DE TEXTO PARA GRAVACAO EM ARQUIVO
+    public String paraLinha() {
+        return this.codigo + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.nome) + "|"
+                + this.preco + "|"
+                + this.quantidade;
+    }
+
+    //RECONSTROI UMA PECA A PARTIR DE UMA LINHA LIDA DO ARQUIVO DE DADOS
+    public static Peca apartirDeLinha(String linha) {
+        String[] campos = ArmazenamentoArquivo.dividirCampos(linha);
+        Peca peca = new Peca(campos[1], Double.parseDouble(campos[2]), Integer.parseInt(campos[3]));
+        peca.setCodigo(Integer.parseInt(campos[0]));
+        return peca;
     }
 }

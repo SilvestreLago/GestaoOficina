@@ -17,6 +17,8 @@ public class Cadastrar extends javax.swing.JFrame {
      */
     public Cadastrar() {
         initComponents();
+        this.setSize(600, 350);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,38 +30,63 @@ public class Cadastrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButtonSair = new javax.swing.JButton();
         jButtonCadVeic = new javax.swing.JButton();
         jButtonCadPeca = new javax.swing.JButton();
         jButtonCadServ = new javax.swing.JButton();
         jButtonCadOS = new javax.swing.JButton();
         jButtonCadCliente = new javax.swing.JButton();
         jButtonCadFunc = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButtonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setFont(new java.awt.Font("Inter", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Cadastrar");
+
+        jButtonSair.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonSair.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonSair.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSair.setText("Voltar");
+        jButtonSair.addActionListener(this::jButtonSairActionPerformed);
+
+        jButtonCadVeic.setBackground(new java.awt.Color(0, 51, 153));
         jButtonCadVeic.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonCadVeic.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCadVeic.setText("Cadastrar Veiculo");
         jButtonCadVeic.addActionListener(this::jButtonCadVeicActionPerformed);
 
+        jButtonCadPeca.setBackground(new java.awt.Color(0, 51, 153));
         jButtonCadPeca.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonCadPeca.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCadPeca.setText("Cadastrar Peça");
         jButtonCadPeca.addActionListener(this::jButtonCadPecaActionPerformed);
 
+        jButtonCadServ.setBackground(new java.awt.Color(0, 51, 153));
         jButtonCadServ.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonCadServ.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCadServ.setText("Cadastrar Serviço");
         jButtonCadServ.addActionListener(this::jButtonCadServActionPerformed);
 
+        jButtonCadOS.setBackground(new java.awt.Color(0, 51, 153));
         jButtonCadOS.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonCadOS.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCadOS.setText("Cadastrar Ordem de Serviço");
         jButtonCadOS.addActionListener(this::jButtonCadOSActionPerformed);
 
+        jButtonCadCliente.setBackground(new java.awt.Color(0, 51, 153));
         jButtonCadCliente.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonCadCliente.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCadCliente.setText("Cadastrar Cliente");
         jButtonCadCliente.addActionListener(this::jButtonCadClienteActionPerformed);
 
+        jButtonCadFunc.setBackground(new java.awt.Color(0, 51, 153));
         jButtonCadFunc.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonCadFunc.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCadFunc.setText("Cadastrar Funcionario");
         jButtonCadFunc.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -68,59 +95,70 @@ public class Cadastrar extends javax.swing.JFrame {
         });
         jButtonCadFunc.addActionListener(this::jButtonCadFuncActionPerformed);
 
-        jLabel1.setFont(new java.awt.Font("Inter", 1, 24)); // NOI18N
-        jLabel1.setText("Cadastrar");
-
-        jButtonSair.setBackground(new java.awt.Color(255, 0, 0));
-        jButtonSair.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
-        jButtonSair.setText("Voltar");
-        jButtonSair.addActionListener(this::jButtonSairActionPerformed);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jButtonSair)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonCadServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonCadOS))
+                        .addGap(149, 149, 149))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonCadCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonCadVeic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonCadPeca, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(23, 23, 23))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(204, 204, 204))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonSair)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonCadVeic)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonCadPeca))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonCadFunc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonCadCliente)))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCadServ)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonCadOS)
+                .addGap(82, 82, 82))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonSair)
-                .addGap(109, 109, 109)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)
-                        .addGap(44, 44, 44))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButtonCadCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonCadVeic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonCadPeca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonCadServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonCadOS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(182, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonSair))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonCadFunc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCadCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCadVeic)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCadPeca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCadServ)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCadOS)))
-                .addContainerGap(43, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -213,5 +251,6 @@ public class Cadastrar extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadVeic;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

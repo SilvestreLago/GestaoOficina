@@ -1,0 +1,2 @@
+200|Troca de Oleo|Trocando o oleo do veiculo.|1 hora|100.0
+201|Trocar paleta|Trocar a paleta do para-brisas.|10 minutos|40.5

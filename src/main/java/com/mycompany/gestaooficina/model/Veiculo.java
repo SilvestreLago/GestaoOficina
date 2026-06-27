@@ -1,6 +1,7 @@
 package com.mycompany.gestaooficina.model;
 
 import com.mycompany.gestaooficina.control.GerenciamentoVeiculos;
+import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 
 public class Veiculo {
     private int codigo;
@@ -51,5 +52,24 @@ public class Veiculo {
                "\nMarca: " + this.marca +
                "\nAno: " + this.ano +
                "\nQuilometragem: " + this.quilometragem;
+    }
+
+    //CONVERTE O VEICULO EM UMA LINHA DE TEXTO PARA GRAVACAO EM ARQUIVO
+    public String paraLinha() {
+        return this.codigo + "|"
+                + this.codigoCliente + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.placa) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.modelo) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.marca) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.ano) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.quilometragem);
+    }
+
+    //RECONSTROI UM VEICULO A PARTIR DE UMA LINHA LIDA DO ARQUIVO DE DADOS
+    public static Veiculo apartirDeLinha(String linha) {
+        String[] campos = ArmazenamentoArquivo.dividirCampos(linha);
+        Veiculo veiculo = new Veiculo(Integer.parseInt(campos[1]), campos[2], campos[3], campos[4], campos[5], campos[6]);
+        veiculo.setCodigo(Integer.parseInt(campos[0]));
+        return veiculo;
     }
 }

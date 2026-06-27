@@ -1,6 +1,7 @@
 package com.mycompany.gestaooficina.model;
 
 import com.mycompany.gestaooficina.control.GerenciamentoFuncionarios;
+import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 
 public class Funcionario {
     private int codigo;
@@ -39,5 +40,23 @@ public class Funcionario {
                "\nCPF: " + this.cpf +
                "\nSalario: " + this.salario +
                "\nTipo: " + this.tipo;
+    }
+
+    //CONVERTE O FUNCIONARIO EM UMA LINHA DE TEXTO PARA GRAVACAO EM ARQUIVO
+    public String paraLinha() {
+        return this.codigo + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.nome) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.cpf) + "|"
+                + this.salario + "|"
+                + this.tipo.name();
+    }
+
+    //RECONSTROI UM FUNCIONARIO A PARTIR DE UMA LINHA LIDA DO ARQUIVO DE DADOS
+    public static Funcionario apartirDeLinha(String linha) {
+        String[] campos = ArmazenamentoArquivo.dividirCampos(linha);
+        Funcionario funcionario = new Funcionario(campos[1], campos[2],
+                Double.parseDouble(campos[3]), TipoFuncionario.fromString(campos[4]));
+        funcionario.setCodigo(Integer.parseInt(campos[0]));
+        return funcionario;
     }
 }

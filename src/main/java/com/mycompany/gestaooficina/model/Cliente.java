@@ -5,6 +5,7 @@
 package com.mycompany.gestaooficina.model;
 
 import com.mycompany.gestaooficina.control.GerenciamentoClientes;
+import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 
 /**
  *
@@ -76,6 +77,23 @@ public class Cliente {
                 "\nTelefone: " + this.telefone +
                 "\nEmail: " + this.email;
         return conteudo;
+    }
+
+    //CONVERTE O CLIENTE EM UMA LINHA DE TEXTO PARA GRAVACAO EM ARQUIVO
+    public String paraLinha() {
+        return this.codigo + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.nome) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.telefone) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.cpf) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.email);
+    }
+
+    //RECONSTROI UM CLIENTE A PARTIR DE UMA LINHA LIDA DO ARQUIVO DE DADOS
+    public static Cliente apartirDeLinha(String linha) {
+        String[] campos = ArmazenamentoArquivo.dividirCampos(linha);
+        Cliente cliente = new Cliente(campos[1], campos[2], campos[3], campos[4]);
+        cliente.setCodigo(Integer.parseInt(campos[0]));
+        return cliente;
     }
     
     

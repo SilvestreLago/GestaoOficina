@@ -31,6 +31,8 @@ public class Editar extends javax.swing.JFrame {
      */
     public Editar() {
         initComponents();
+        this.setSize(600, 350);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -42,7 +44,7 @@ public class Editar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonEditClient = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jButtonEditFunc = new javax.swing.JButton();
         jButtonEditVeic = new javax.swing.JButton();
         jButtonEditPeca = new javax.swing.JButton();
@@ -50,87 +52,121 @@ public class Editar extends javax.swing.JFrame {
         jButtonEditOS = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButtonEditClient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonEditClient.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
-        jButtonEditClient.setText("Editar Cliente");
-        jButtonEditClient.addActionListener(this::jButtonEditClientActionPerformed);
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
+        jButtonEditFunc.setBackground(new java.awt.Color(0, 51, 153));
         jButtonEditFunc.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonEditFunc.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEditFunc.setText("Editar Funcionario");
         jButtonEditFunc.addActionListener(this::jButtonEditFuncActionPerformed);
 
+        jButtonEditVeic.setBackground(new java.awt.Color(0, 51, 153));
         jButtonEditVeic.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonEditVeic.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEditVeic.setText("Editar Veiculo");
         jButtonEditVeic.addActionListener(this::jButtonEditVeicActionPerformed);
 
+        jButtonEditPeca.setBackground(new java.awt.Color(0, 51, 153));
         jButtonEditPeca.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonEditPeca.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEditPeca.setText("Editar Peça");
         jButtonEditPeca.addActionListener(this::jButtonEditPecaActionPerformed);
 
+        jButtonEditServico.setBackground(new java.awt.Color(0, 51, 153));
         jButtonEditServico.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonEditServico.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEditServico.setText("Editar Serviço");
         jButtonEditServico.addActionListener(this::jButtonEditServicoActionPerformed);
 
+        jButtonEditOS.setBackground(new java.awt.Color(0, 51, 153));
         jButtonEditOS.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonEditOS.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEditOS.setText("Editar Ordem de Serviço");
         jButtonEditOS.addActionListener(this::jButtonEditOSActionPerformed);
 
         jButtonVoltar.setBackground(new java.awt.Color(255, 0, 0));
         jButtonVoltar.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonVoltar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(this::jButtonVoltarActionPerformed);
 
-        jLabel1.setFont(new java.awt.Font("Inter", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Inter", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Editar");
+
+        jButtonEditClient.setBackground(new java.awt.Color(0, 51, 153));
+        jButtonEditClient.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonEditClient.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEditClient.setText("Editar Cliente");
+        jButtonEditClient.addActionListener(this::jButtonEditClientActionPerformed);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonEditClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonEditFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonEditPeca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonEditVeic, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(245, 245, 245))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jButtonVoltar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButtonEditOS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonEditServico, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonVoltar)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonEditVeic)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonEditPeca))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonEditFunc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonEditClient)))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonEditServico)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonEditOS)
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonVoltar)
-                        .addGap(191, 191, 191)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 185, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButtonEditOS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonEditServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonEditPeca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonEditVeic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonEditClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonEditFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
-                        .addGap(182, 182, 182))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonVoltar)
-                        .addGap(43, 43, 43))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)))
-                .addComponent(jButtonEditFunc)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonEditClient)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonEditVeic)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonEditPeca)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonEditServico)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonEditOS)
-                .addContainerGap(45, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -141,8 +177,22 @@ public class Editar extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //SOLICITA O CODIGO DO CLIENTE PARA SER EDITADO
-        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do cliente: "));
+        String textoBusca = JOptionPane.showInputDialog("Digite o codigo do cliente: ");
         
+        //VERIFICA OS DADOS PASSADOS
+        if (textoBusca.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O codigo deve ser informado");
+            return;
+        }
+        
+        int busca = 0;
+        try {
+            busca = Integer.parseInt(textoBusca);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Codigo invalido!");
+            return;
+        }
+                
         //PROCURA SE O CLIENTE EXISTE
         GerenciamentoClientes genClient = GerenciamentoClientes.getInstance();
         Cliente cliente = genClient.buscarCliente(busca);
@@ -153,10 +203,9 @@ public class Editar extends javax.swing.JFrame {
             this.setVisible(true);
         }
         
-        //CASO EXISTA, MOSTRA O NOME E ABRE A TELA DE EDIÇAO
+        //CASO EXISTA, ABRE A TELA DE EDIÇAO
         else{
             this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Cliente: " + cliente.getNome());
             EditarCliente editClient = new EditarCliente(cliente);
             editClient.setVisible(true);
         }
@@ -165,7 +214,21 @@ public class Editar extends javax.swing.JFrame {
     //EDITAR FUNCIONARIO
     private void jButtonEditFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditFuncActionPerformed
         //SOLICITA O CODIGO DO FUNCIONARIO PARA SER EDITADO
-        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do funcionario: "));
+        var textoBusca = JOptionPane.showInputDialog("Digite o codigo do funcionario: ");
+        
+        //VERIFICA OS DADOS PASSADOS
+        if (textoBusca.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O codigo deve ser informado");
+            return;
+        }
+        
+        int busca = 0;
+        try {
+            busca = Integer.parseInt(textoBusca);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Codigo invalido!");
+            return;
+        }
         
         //PROCURA SE O FUNCIONARIO EXISTE
         GerenciamentoFuncionarios genFunc = GerenciamentoFuncionarios.getInstance();
@@ -177,10 +240,9 @@ public class Editar extends javax.swing.JFrame {
             this.setVisible(true);
         }
         
-        //CASO EXISTA, MOSTRA O NOME E ABRE A TELA DE EDICAO
+        //CASO EXISTA, ABRE A TELA DE EDICAO
         else {
             this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Funcionario: " + funcionario.getNome());
             EditarFuncionario editFunc = new EditarFuncionario(funcionario);
             editFunc.setVisible(true);
         }
@@ -189,7 +251,21 @@ public class Editar extends javax.swing.JFrame {
     //EDITAR VEICULO
     private void jButtonEditVeicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditVeicActionPerformed
         //SOLICITA O CODIGO DO VEICULO PARA SER EDITADO
-        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do veiculo: "));
+        var textoBusca = JOptionPane.showInputDialog("Digite o codigo do veiculo: ");
+        
+        //VERIFICA OS DADOS PASSADOS
+        if (textoBusca.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O codigo deve ser informado");
+            return;
+        }
+        
+        int busca = 0;
+        try {
+            busca = Integer.parseInt(textoBusca);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Codigo invalido!");
+            return;
+        }
         
         //PROCURA SE O VEICULO EXISTE
         GerenciamentoVeiculos genVeic = GerenciamentoVeiculos.getInstance();
@@ -201,10 +277,9 @@ public class Editar extends javax.swing.JFrame {
             this.setVisible(true);
         }
         
-        //CASO EXISTA, MOSTRA A PLACA E ABRE A TELA DE EDICAO
+        //CASO EXISTA, ABRE A TELA DE EDICAO
         else {
             this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Veiculo: " + veiculo.getPlaca());
             EditarVeiculo editVeic = new EditarVeiculo(veiculo);
             editVeic.setVisible(true);
         }
@@ -212,10 +287,22 @@ public class Editar extends javax.swing.JFrame {
 
     //EDITAR PEÇA EM ESTOQUE
     private void jButtonEditPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditPecaActionPerformed
-        // TODO add your handling code here:
-        
         //SOLICITA O CODIGO DA PEÇA PARA SER EDITADA
-        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo da peça: "));
+        var textoBusca = JOptionPane.showInputDialog("Digite o codigo da peça: ");
+
+        //VERIFICA OS DADOS PASSADOS
+        if (textoBusca.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O codigo deve ser informado");
+            return;
+        }
+        
+        int busca = 0;
+        try {
+            busca = Integer.parseInt(textoBusca);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Codigo invalido!");
+            return;
+        }        
         
         //PROCURA SE A PEÇA EXISTE
         GerenciamentoPecas genPeca = GerenciamentoPecas.getInstance();
@@ -227,10 +314,9 @@ public class Editar extends javax.swing.JFrame {
             this.setVisible(true);
         }
         
-        //CASO EXISTA, MOSTRA O NOME E ABRE A TELA DE EDIÇAO
+        //CASO EXISTA, ABRE A TELA DE EDIÇAO
         else{
             this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Peça: " + peca.getNome());
             EditarPeca editPeca = new EditarPeca(peca);
             editPeca.setVisible(true);
         }
@@ -238,10 +324,22 @@ public class Editar extends javax.swing.JFrame {
 
     //EDITAR INFORMAÇOES DE SERVIÇO
     private void jButtonEditServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditServicoActionPerformed
-        // TODO add your handling code here:
-        
         //SOLICITA O CODIGO DO SERVIÇO PARA SER EDITADO
-        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do serviço: "));
+        var textoBusca = JOptionPane.showInputDialog("Digite o codigo do serviço: ");
+        
+        //VERIFICA OS DADOS PASSADOS
+        if (textoBusca.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O codigo deve ser informado");
+            return;
+        }
+        
+        int busca = 0;
+        try {
+            busca = Integer.parseInt(textoBusca);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Codigo invalido!");
+            return;
+        }
         
         //PROCURA SE O SERVIÇO EXISTE
         GerenciamentoServicos genServico = GerenciamentoServicos.getInstance();
@@ -253,10 +351,9 @@ public class Editar extends javax.swing.JFrame {
             this.setVisible(true);
         }
         
-        //CASO EXISTA, MOSTRA O NOME E ABRE A TELA DE EDIÇAO
+        //CASO EXISTA, ABRE A TELA DE EDIÇAO
         else{
             this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Serviço: " + servico.getNome());
             EditarServico editServico = new EditarServico(servico);
             editServico.setVisible(true);
         }
@@ -265,7 +362,21 @@ public class Editar extends javax.swing.JFrame {
     //EDITAR ORDEM DE SERVIÇO
     private void jButtonEditOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditOSActionPerformed
         //SOLICITA O CODIGO DA OS PARA SER EDITADA
-        int busca = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo da Ordem de Servico: "));
+        var textoBusca = JOptionPane.showInputDialog("Digite o codigo da Ordem de Servico: ");
+        
+        //VERIFICA OS DADOS PASSADOS
+        if (textoBusca.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O codigo deve ser informado");
+            return;
+        }
+        
+        int busca = 0;
+        try {
+            busca = Integer.parseInt(textoBusca);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Codigo invalido!");
+            return;
+        }
         
         //PROCURA SE A OS EXISTE
         GerenciamentoOrdemServico genOS = GerenciamentoOrdemServico.getInstance();
@@ -280,7 +391,6 @@ public class Editar extends javax.swing.JFrame {
         //CASO EXISTA, MOSTRA O CODIGO E ABRE A TELA DE EDICAO
         else {
             this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "OS: " + os.getCodigo());
             EditarOrdemServico editOS = new EditarOrdemServico(os);
             editOS.setVisible(true);
         }
@@ -328,5 +438,6 @@ public class Editar extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEditVeic;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

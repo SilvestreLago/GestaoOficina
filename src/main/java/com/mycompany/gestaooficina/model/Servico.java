@@ -5,6 +5,7 @@
 package com.mycompany.gestaooficina.model;
 
 import com.mycompany.gestaooficina.control.GerenciamentoServicos;
+import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 
 /**
  *
@@ -75,6 +76,23 @@ public class Servico {
                 "\nTempo estimado: " + this.tempo +
                 "\nPreço: " + this.preco;
         return conteudo;
+    }
+
+    //CONVERTE O SERVICO EM UMA LINHA DE TEXTO PARA GRAVACAO EM ARQUIVO
+    public String paraLinha() {
+        return this.codigo + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.nome) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.descricao) + "|"
+                + ArmazenamentoArquivo.escaparCampo(this.tempo) + "|"
+                + this.preco;
+    }
+
+    //RECONSTROI UM SERVICO A PARTIR DE UMA LINHA LIDA DO ARQUIVO DE DADOS
+    public static Servico apartirDeLinha(String linha) {
+        String[] campos = ArmazenamentoArquivo.dividirCampos(linha);
+        Servico servico = new Servico(campos[1], campos[2], campos[3], Double.parseDouble(campos[4]));
+        servico.setCodigo(Integer.parseInt(campos[0]));
+        return servico;
     }
     
 }

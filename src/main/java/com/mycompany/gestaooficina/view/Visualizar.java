@@ -25,6 +25,8 @@ public class Visualizar extends javax.swing.JFrame {
      */
     public Visualizar() {
         initComponents();
+        this.setSize(600, 350);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -36,95 +38,131 @@ public class Visualizar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jButtonVerFunc = new javax.swing.JButton();
         jButtonVerClientes = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonVerVeiculo = new javax.swing.JButton();
         jButtonVerPeca = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButtonVerOS = new javax.swing.JButton();
         jButtonVerServico = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
-        jButton1.setText("Ver Funcionarios");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setForeground(new java.awt.Color(102, 102, 102));
 
+        jButtonVerFunc.setBackground(new java.awt.Color(0, 0, 153));
+        jButtonVerFunc.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonVerFunc.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonVerFunc.setText("Ver Funcionarios");
+        jButtonVerFunc.addActionListener(this::jButtonVerFuncActionPerformed);
+
+        jButtonVerClientes.setBackground(new java.awt.Color(0, 0, 153));
         jButtonVerClientes.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonVerClientes.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVerClientes.setText("Ver Clientes");
         jButtonVerClientes.addActionListener(this::jButtonVerClientesActionPerformed);
 
-        jButton3.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
-        jButton3.setText("Ver Veiculos");
-        jButton3.addActionListener(this::jButton3ActionPerformed);
+        jButtonVerVeiculo.setBackground(new java.awt.Color(0, 0, 153));
+        jButtonVerVeiculo.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonVerVeiculo.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonVerVeiculo.setText("Ver Veiculos");
+        jButtonVerVeiculo.addActionListener(this::jButtonVerVeiculoActionPerformed);
 
+        jButtonVerPeca.setBackground(new java.awt.Color(0, 0, 153));
         jButtonVerPeca.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonVerPeca.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVerPeca.setText("Ver Peça");
         jButtonVerPeca.addActionListener(this::jButtonVerPecaActionPerformed);
 
-        jButton5.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
-        jButton5.setText("Ver Ordem de Serviço");
-        jButton5.addActionListener(this::jButton5ActionPerformed);
+        jButtonVerOS.setBackground(new java.awt.Color(0, 0, 153));
+        jButtonVerOS.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonVerOS.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonVerOS.setText("Ver Ordem de Serviço");
+        jButtonVerOS.addActionListener(this::jButtonVerOSActionPerformed);
 
+        jButtonVerServico.setBackground(new java.awt.Color(0, 0, 153));
         jButtonVerServico.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonVerServico.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVerServico.setText("Ver Serviço");
         jButtonVerServico.addActionListener(this::jButtonVerServicoActionPerformed);
 
-        jLabel1.setFont(new java.awt.Font("Inter", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Inter", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Visualizar");
 
         jButtonVoltar.setBackground(new java.awt.Color(255, 0, 0));
         jButtonVoltar.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
+        jButtonVoltar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(this::jButtonVoltarActionPerformed);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonVerFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonVerClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonVerPeca, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonVerVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 483, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonVerOS, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonVerServico, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(139, 139, 139)))
+                .addGap(35, 35, 35))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(212, 212, 212)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonVoltar)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonVerVeiculo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonVerPeca))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonVerFunc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonVerClientes)))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonVerServico)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonVerOS)
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonVoltar)
-                        .addGap(176, 176, 176)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 194, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonVerPeca, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonVerClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
-                            .addComponent(jButtonVerServico, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(173, 173, 173))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonVoltar)
-                        .addGap(25, 25, 25))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVerClientes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVerPeca)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVerServico)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
-                .addContainerGap(45, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -134,7 +172,9 @@ public class Visualizar extends javax.swing.JFrame {
         // TODO add your handling code here:
         GerenciamentoServicos genServico = GerenciamentoServicos.getInstance();
         this.setVisible(false);
-        JOptionPane.showMessageDialog(null, genServico.visualizarServicos());
+        var servicos = genServico.visualizarServicos();
+        if(servicos == "") servicos = "Nao ha servicos disponiveis";
+        JOptionPane.showMessageDialog(null, servicos);
         this.setVisible(true);
     }//GEN-LAST:event_jButtonVerServicoActionPerformed
 
@@ -149,7 +189,9 @@ public class Visualizar extends javax.swing.JFrame {
         // TODO add your handling code here:
         GerenciamentoClientes genClient = GerenciamentoClientes.getInstance();
         this.setVisible(false);
-        JOptionPane.showMessageDialog(null, genClient.visualizarClientes());
+        var cliente = genClient.visualizarClientes();
+        if(cliente == "") cliente = "Nao ha clientes disponiveis";
+        JOptionPane.showMessageDialog(null, cliente);
         this.setVisible(true);
     }//GEN-LAST:event_jButtonVerClientesActionPerformed
 
@@ -157,35 +199,45 @@ public class Visualizar extends javax.swing.JFrame {
         // TODO add your handling code here:
         GerenciamentoPecas genPeca = GerenciamentoPecas.getInstance();
         this.setVisible(false);
-        JOptionPane.showMessageDialog(null, genPeca.visuzalizarPecas());
+        var peca = genPeca.visuzalizarPecas();
+        if(peca == "") peca = "Nao ha pecas disponiveis";
+        JOptionPane.showMessageDialog(null, peca);
         this.setVisible(true);
     }//GEN-LAST:event_jButtonVerPecaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButtonVerOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerOSActionPerformed
         //VER ORDENS DE SERVICO
         GerenciamentoOrdemServico genOS = GerenciamentoOrdemServico.getInstance();
         this.setVisible(false);
-        JOptionPane.showMessageDialog(null, genOS.visualizarOrdensServico());
+        var os = genOS.visualizarOrdensServico();
+        if(os == "") os = "Nao ha ordens de servicos disponiveis";
+        JOptionPane.showMessageDialog(null, os);
         this.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButtonVerOSActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButtonVerFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerFuncActionPerformed
+        // TODO add your handling code here:
         //VER FUNCIONARIOS
         GerenciamentoFuncionarios genFunc = GerenciamentoFuncionarios.getInstance();
         this.setVisible(false);
-        JOptionPane.showMessageDialog(null, genFunc.visualizarFuncionarios());
+        var func = genFunc.visualizarFuncionarios();
+        if(func == "") func = "Nao ha funcionarios disponiveis";
+        JOptionPane.showMessageDialog(null, func);
         this.setVisible(true);
-    }
+    }//GEN-LAST:event_jButtonVerFuncActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButtonVerVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerVeiculoActionPerformed
+        // TODO add your handling code here:
         //VER VEICULOS
         GerenciamentoVeiculos genVeic = GerenciamentoVeiculos.getInstance();
         this.setVisible(false);
-        JOptionPane.showMessageDialog(null, genVeic.visualizarVeiculos());
+        var veiculos = genVeic.visualizarVeiculos();
+        if(veiculos == "") veiculos = "Nao ha veiculos disponiveis";
+        JOptionPane.showMessageDialog(null, veiculos);
         this.setVisible(true);
-    }
+    }//GEN-LAST:event_jButtonVerVeiculoActionPerformed
 
-        /**
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -211,13 +263,14 @@ public class Visualizar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonVerClientes;
+    private javax.swing.JButton jButtonVerFunc;
+    private javax.swing.JButton jButtonVerOS;
     private javax.swing.JButton jButtonVerPeca;
     private javax.swing.JButton jButtonVerServico;
+    private javax.swing.JButton jButtonVerVeiculo;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

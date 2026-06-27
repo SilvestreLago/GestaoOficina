@@ -2,15 +2,27 @@ package com.mycompany.gestaooficina.control;
 
 import com.mycompany.gestaooficina.model.Funcionario;
 import com.mycompany.gestaooficina.model.TipoFuncionario;
+import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 import java.util.LinkedList;
+import java.util.List;
 
+/**
+ * Classe de controle responsável por todas as operações sobre funcionários,
+ * incluindo a leitura e a gravação automática dos dados no arquivo
+ * {@value #ARQUIVO_DADOS}.
+ */
 public class GerenciamentoFuncionarios {
-    private LinkedList<Funcionario> funcionarios;
-    public static int CODIGO = 200;
+
+    private static final String ARQUIVO_DADOS = "funcionarios.txt";
+    private static final int CODIGO_INICIAL = 200;
+
+    private final LinkedList<Funcionario> funcionarios;
+    public static int CODIGO = CODIGO_INICIAL;
     private static GerenciamentoFuncionarios instance = null;
 
     private GerenciamentoFuncionarios() {
-        this.funcionarios = new LinkedList<Funcionario>();
+        this.funcionarios = new LinkedList<>();
+        carregarDados();
     }
 
     public static GerenciamentoFuncionarios getInstance() {
@@ -18,6 +30,31 @@ public class GerenciamentoFuncionarios {
             instance = new GerenciamentoFuncionarios();
         }
         return instance;
+    }
+
+    //CARREGA OS FUNCIONARIOS PERSISTIDOS NO ARQUIVO DE DADOS
+    private void carregarDados() {
+        List<String> linhas = ArmazenamentoArquivo.lerLinhas(ARQUIVO_DADOS);
+        int maiorCodigo = CODIGO_INICIAL - 1;
+        for (String linha : linhas) {
+            try {
+                Funcionario funcionario = Funcionario.apartirDeLinha(linha);
+                this.funcionarios.add(funcionario);
+                maiorCodigo = Math.max(maiorCodigo, funcionario.getCodigo());
+            } catch (RuntimeException e) {
+                // Linha inválida ou corrompida é ignorada.
+            }
+        }
+        CODIGO = maiorCodigo + 1;
+    }
+
+    //GRAVA TODOS OS FUNCIONARIOS ATUAIS NO ARQUIVO DE DADOS
+    private void persistirDados() {
+        List<String> linhas = new LinkedList<>();
+        for (Funcionario funcionario : this.funcionarios) {
+            linhas.add(funcionario.paraLinha());
+        }
+        ArmazenamentoArquivo.escreverLinhas(ARQUIVO_DADOS, linhas);
     }
 
     //BUSCAR FUNCIONARIO POR CODIGO
@@ -42,6 +79,7 @@ public class GerenciamentoFuncionarios {
     //CADASTRAR UM NOVO FUNCIONARIO
     public void cadastrarFuncionario(Funcionario funcionario) {
         this.funcionarios.add(funcionario);
+        persistirDados();
     }
 
     //EDITAR UM FUNCIONARIO
@@ -52,6 +90,7 @@ public class GerenciamentoFuncionarios {
                 func.setCpf(cpf);
                 func.setSalario(salario);
                 func.setTipo(tipo);
+                persistirDados();
                 return;
             }
         }
@@ -60,5 +99,6 @@ public class GerenciamentoFuncionarios {
     //REMOVER UM FUNCIONARIO
     public void removerFuncionario(int codigo) {
         this.funcionarios.removeIf(func -> func.getCodigo() == codigo);
+        persistirDados();
     }
 }
