@@ -5,11 +5,7 @@ import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Classe de controle responsável por todas as operações sobre veículos,
- * incluindo a leitura e a gravação automática dos dados no arquivo
- * {@value #ARQUIVO_DADOS}.
- */
+
 public class GerenciamentoVeiculos {
 
     private static final String ARQUIVO_DADOS = "veiculos.txt";
@@ -31,7 +27,6 @@ public class GerenciamentoVeiculos {
         return instance;
     }
 
-    //CARREGA OS VEICULOS PERSISTIDOS NO ARQUIVO DE DADOS
     private void carregarDados() {
         List<String> linhas = ArmazenamentoArquivo.lerLinhas(ARQUIVO_DADOS);
         int maiorCodigo = CODIGO_INICIAL - 1;
@@ -47,7 +42,6 @@ public class GerenciamentoVeiculos {
         CODIGO = maiorCodigo + 1;
     }
 
-    //GRAVA TODOS OS VEICULOS ATUAIS NO ARQUIVO DE DADOS
     private void persistirDados() {
         List<String> linhas = new LinkedList<>();
         for (Veiculo veiculo : this.veiculos) {
@@ -56,7 +50,6 @@ public class GerenciamentoVeiculos {
         ArmazenamentoArquivo.escreverLinhas(ARQUIVO_DADOS, linhas);
     }
 
-    //BUSCAR VEICULO POR CODIGO
     public Veiculo buscarVeiculo(int codigo) {
         for (Veiculo veiculo : this.veiculos) {
             if (veiculo.getCodigo() == codigo) {
@@ -65,8 +58,20 @@ public class GerenciamentoVeiculos {
         }
         return null;
     }
+    
+     public Veiculo buscarVeiculo(String nome) {
+        if (nome == null || nome.isBlank()) {
+            return null;
+        }
+        String busca = nome.toLowerCase().trim();
+        for (Veiculo veiculo : this.veiculos) {
+            if (veiculo.getPlaca().toLowerCase().equals(busca)) {
+                return veiculo;
+            }
+        }
+        return null;
+    }
 
-    //BUSCAR TODOS OS VEICULOS DE UM CLIENTE
     public List<Veiculo> buscarVeiculosPorCliente(int codigoCliente) {
         List<Veiculo> resultado = new LinkedList<>();
         for (Veiculo veiculo : this.veiculos) {
@@ -77,7 +82,6 @@ public class GerenciamentoVeiculos {
         return resultado;
     }
 
-    //VISUALIZAR TODOS OS VEICULOS
     public String visualizarVeiculos() {
         String conteudo = "";
         for (Veiculo veiculo : this.veiculos) {
@@ -85,14 +89,20 @@ public class GerenciamentoVeiculos {
         }
         return conteudo;
     }
+    
+     public String resumirVeiculos() {
+        String resumo = "";
+        for (Veiculo veiculo : this.veiculos) {
+            resumo += veiculo.getResumo() + "\n"; 
+        }
+        return resumo;
+    }
 
-    //CADASTRAR UM NOVO VEICULO
     public void cadastrarVeiculo(Veiculo veiculo) {
         this.veiculos.add(veiculo);
         persistirDados();
     }
 
-    //EDITAR UM VEICULO
     public void editarVeiculo(int codigo, int codigoCliente, String placa, String modelo, String marca, String ano, String quilometragem) {
         for (Veiculo veiculo : this.veiculos) {
             if (codigo == veiculo.getCodigo()) {
@@ -108,7 +118,6 @@ public class GerenciamentoVeiculos {
         }
     }
 
-    //REMOVER UM VEICULO (E EM CASCATA AS ORDENS DE SERVICO ATRELADAS A ELE)
     public void removerVeiculo(int codigo) {
         this.veiculos.removeIf(v -> v.getCodigo() == codigo);
         GerenciamentoOrdemServico.getInstance().removerOrdemServicoPorVeiculo(codigo);

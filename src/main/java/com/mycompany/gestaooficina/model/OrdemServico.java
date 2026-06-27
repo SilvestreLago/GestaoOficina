@@ -5,15 +5,7 @@ import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Representa uma Ordem de Serviço da oficina, vinculando um veículo, um
- * cliente, um mecânico responsável, uma peça e um serviço executado.
- *
- * <p>Além dos vínculos originais do sistema, a Ordem de Serviço passou a
- * registrar também o seu {@link StatusOrdemServico status atual} e a
- * {@code dataAbertura}, permitindo um acompanhamento mais profissional do
- * andamento dos atendimentos da oficina.</p>
- */
+
 public class OrdemServico {
 
     private static final DateTimeFormatter FORMATO_DATA = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
@@ -63,6 +55,10 @@ public class OrdemServico {
     public String getDataAbertura() { return dataAbertura; }
     public void setDataAbertura(String dataAbertura) { this.dataAbertura = dataAbertura; }
 
+    public String getResumo() {
+        return "OS #" + codigo + " — " + status + " (" + dataAbertura + ")";
+    }
+    
     public String visualizarOrdemServico() {
         return "\n\nCodigo OS: " + this.codigo +
                "\nCod. Veiculo: " + this.codigoVeiculo +
@@ -74,7 +70,6 @@ public class OrdemServico {
                "\nData de abertura: " + this.dataAbertura;
     }
 
-    //CONVERTE A ORDEM DE SERVICO EM UMA LINHA DE TEXTO PARA GRAVACAO EM ARQUIVO
     public String paraLinha() {
         return this.codigo + "|"
                 + this.codigoVeiculo + "|"
@@ -86,7 +81,6 @@ public class OrdemServico {
                 + ArmazenamentoArquivo.escaparCampo(this.dataAbertura);
     }
 
-    //RECONSTROI UMA ORDEM DE SERVICO A PARTIR DE UMA LINHA LIDA DO ARQUIVO DE DADOS
     public static OrdemServico apartirDeLinha(String linha) {
         String[] campos = ArmazenamentoArquivo.dividirCampos(linha);
         OrdemServico os = new OrdemServico(

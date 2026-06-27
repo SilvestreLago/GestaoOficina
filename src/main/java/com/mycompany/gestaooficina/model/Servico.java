@@ -67,6 +67,10 @@ public class Servico {
         this.preco = preco;
     }
     
+    public String getResumo() {
+        return "Servico #" + codigo + " — " + nome + " (R$: " + preco + ")";
+    }
+    
     public String visualizarServico(){
         String conteudo = "";
         conteudo = 
@@ -78,7 +82,6 @@ public class Servico {
         return conteudo;
     }
 
-    //CONVERTE O SERVICO EM UMA LINHA DE TEXTO PARA GRAVACAO EM ARQUIVO
     public String paraLinha() {
         return this.codigo + "|"
                 + ArmazenamentoArquivo.escaparCampo(this.nome) + "|"
@@ -87,7 +90,6 @@ public class Servico {
                 + this.preco;
     }
 
-    //RECONSTROI UM SERVICO A PARTIR DE UMA LINHA LIDA DO ARQUIVO DE DADOS
     public static Servico apartirDeLinha(String linha) {
         String[] campos = ArmazenamentoArquivo.dividirCampos(linha);
         Servico servico = new Servico(campos[1], campos[2], campos[3], Double.parseDouble(campos[4]));

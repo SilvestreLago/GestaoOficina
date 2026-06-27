@@ -1,15 +1,12 @@
 package com.mycompany.gestaooficina.control;
 
+import com.mycompany.gestaooficina.model.Funcionario;
 import com.mycompany.gestaooficina.model.Servico;
 import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Classe de controle responsável por todas as operações sobre serviços,
- * incluindo a leitura e a gravação automática dos dados no arquivo
- * {@value #ARQUIVO_DADOS}.
- */
+
 public class GerenciamentoServicos {
 
     private static final String ARQUIVO_DADOS = "servicos.txt";
@@ -31,7 +28,6 @@ public class GerenciamentoServicos {
         return instance;
     }
 
-    //CARREGA OS SERVICOS PERSISTIDOS NO ARQUIVO DE DADOS
     private void carregarDados() {
         List<String> linhas = ArmazenamentoArquivo.lerLinhas(ARQUIVO_DADOS);
         int maiorCodigo = CODIGO_INICIAL - 1;
@@ -47,7 +43,6 @@ public class GerenciamentoServicos {
         CODIGO = maiorCodigo + 1;
     }
 
-    //GRAVA TODOS OS SERVICOS ATUAIS NO ARQUIVO DE DADOS
     private void persistirDados() {
         List<String> linhas = new LinkedList<>();
         for (Servico servico : this.servicos) {
@@ -56,7 +51,6 @@ public class GerenciamentoServicos {
         ArmazenamentoArquivo.escreverLinhas(ARQUIVO_DADOS, linhas);
     }
 
-    //BUSCAR SERVIÇO POR CODIGO
     public Servico buscarServico(int codigo) {
         for (Servico servico : this.servicos) {
             if (servico.getCodigo() == codigo) {
@@ -65,8 +59,20 @@ public class GerenciamentoServicos {
         }
         return null;
     }
+    
+    public Servico buscarServico(String nome) {
+        if (nome == null || nome.isBlank()) {
+            return null;
+        }
+        String busca = nome.toLowerCase().trim();
+        for (Servico servico : this.servicos) {
+            if (servico.getNome().toLowerCase().equals(busca)) {
+                return servico;
+            }
+        }
+        return null;
+    }
 
-    //VISUALIZAR TODOS OS SERVIÇOS
     public String visualizarServicos() {
         String conteudo = "";
         for (Servico servico : this.servicos) {
@@ -74,14 +80,20 @@ public class GerenciamentoServicos {
         }
         return conteudo;
     }
+    
+     public String resumirServicos() {
+        String resumo = "";
+        for (Servico cliente : this.servicos) {
+            resumo += cliente.getResumo() + "\n"; 
+        }
+        return resumo;
+    }
 
-    //CADASTRAR UM NOVO SERVIÇO
     public void cadastrarServico(Servico servico) {
         this.servicos.add(servico);
         persistirDados();
     }
 
-    //EDITAR UM SERVIÇO
     public void editarServico(int codigo, String nome, String descricao, String tempo, double preco) {
         for (Servico servico : this.servicos) {
             if (codigo == servico.getCodigo()) {
@@ -95,7 +107,6 @@ public class GerenciamentoServicos {
         }
     }
 
-    //REMOVER UM SERVIÇO
     public void removerServico(int codigo) {
         this.servicos.removeIf(servico -> servico.getCodigo() == codigo);
         persistirDados();

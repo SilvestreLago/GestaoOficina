@@ -1,16 +1,13 @@
 package com.mycompany.gestaooficina.control;
 
+import com.mycompany.gestaooficina.model.Cliente;
 import com.mycompany.gestaooficina.model.Funcionario;
 import com.mycompany.gestaooficina.model.TipoFuncionario;
 import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Classe de controle responsável por todas as operações sobre funcionários,
- * incluindo a leitura e a gravação automática dos dados no arquivo
- * {@value #ARQUIVO_DADOS}.
- */
+
 public class GerenciamentoFuncionarios {
 
     private static final String ARQUIVO_DADOS = "funcionarios.txt";
@@ -32,7 +29,6 @@ public class GerenciamentoFuncionarios {
         return instance;
     }
 
-    //CARREGA OS FUNCIONARIOS PERSISTIDOS NO ARQUIVO DE DADOS
     private void carregarDados() {
         List<String> linhas = ArmazenamentoArquivo.lerLinhas(ARQUIVO_DADOS);
         int maiorCodigo = CODIGO_INICIAL - 1;
@@ -48,7 +44,6 @@ public class GerenciamentoFuncionarios {
         CODIGO = maiorCodigo + 1;
     }
 
-    //GRAVA TODOS OS FUNCIONARIOS ATUAIS NO ARQUIVO DE DADOS
     private void persistirDados() {
         List<String> linhas = new LinkedList<>();
         for (Funcionario funcionario : this.funcionarios) {
@@ -57,7 +52,6 @@ public class GerenciamentoFuncionarios {
         ArmazenamentoArquivo.escreverLinhas(ARQUIVO_DADOS, linhas);
     }
 
-    //BUSCAR FUNCIONARIO POR CODIGO
     public Funcionario buscarFuncionario(int codigo) {
         for (Funcionario func : this.funcionarios) {
             if (func.getCodigo() == codigo) {
@@ -66,8 +60,20 @@ public class GerenciamentoFuncionarios {
         }
         return null;
     }
+    
+    public Funcionario buscarFuncionario(String nome) {
+        if (nome == null || nome.isBlank()) {
+            return null;
+        }
+        String busca = nome.toLowerCase().trim();
+        for (Funcionario funcionario : this.funcionarios) {
+            if (funcionario.getNome().toLowerCase().equals(busca)) {
+                return funcionario;
+            }
+        }
+        return null;
+    }
 
-    //VISUALIZAR TODOS OS FUNCIONARIOS
     public String visualizarFuncionarios() {
         String conteudo = "";
         for (Funcionario func : this.funcionarios) {
@@ -75,14 +81,20 @@ public class GerenciamentoFuncionarios {
         }
         return conteudo;
     }
+    
+    public String resumirFuncionarios() {
+        String resumo = "";
+        for (Funcionario funcionario : this.funcionarios) {
+            resumo += funcionario.verResumo() + "\n";
+        }
+        return resumo;
+    }
 
-    //CADASTRAR UM NOVO FUNCIONARIO
     public void cadastrarFuncionario(Funcionario funcionario) {
         this.funcionarios.add(funcionario);
         persistirDados();
     }
 
-    //EDITAR UM FUNCIONARIO
     public void editarFuncionario(int codigo, String nome, String cpf, double salario, TipoFuncionario tipo) {
         for (Funcionario func : this.funcionarios) {
             if (codigo == func.getCodigo()) {
@@ -96,7 +108,6 @@ public class GerenciamentoFuncionarios {
         }
     }
 
-    //REMOVER UM FUNCIONARIO
     public void removerFuncionario(int codigo) {
         this.funcionarios.removeIf(func -> func.getCodigo() == codigo);
         persistirDados();

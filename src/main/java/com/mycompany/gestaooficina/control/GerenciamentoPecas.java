@@ -1,15 +1,12 @@
 package com.mycompany.gestaooficina.control;
 
+import com.mycompany.gestaooficina.exception.PecaSemEstoqueException;
 import com.mycompany.gestaooficina.model.Peca;
 import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Classe de controle responsável por todas as operações sobre peças,
- * incluindo a leitura e a gravação automática dos dados no arquivo
- * {@value #ARQUIVO_DADOS}.
- */
+
 public class GerenciamentoPecas {
 
     private static final String ARQUIVO_DADOS = "pecas.txt";
@@ -31,7 +28,6 @@ public class GerenciamentoPecas {
         return instance;
     }
 
-    //CARREGA AS PECAS PERSISTIDAS NO ARQUIVO DE DADOS
     private void carregarDados() {
         List<String> linhas = ArmazenamentoArquivo.lerLinhas(ARQUIVO_DADOS);
         int maiorCodigo = CODIGO_INICIAL - 1;
@@ -47,7 +43,6 @@ public class GerenciamentoPecas {
         CODIGO = maiorCodigo + 1;
     }
 
-    //GRAVA TODAS AS PECAS ATUAIS NO ARQUIVO DE DADOS
     private void persistirDados() {
         List<String> linhas = new LinkedList<>();
         for (Peca peca : this.pecas) {
@@ -56,7 +51,6 @@ public class GerenciamentoPecas {
         ArmazenamentoArquivo.escreverLinhas(ARQUIVO_DADOS, linhas);
     }
 
-    //BUSCAR PECA POR CODIGO
     public Peca buscarPeca(int codigo) {
         for (Peca peca : this.pecas) {
             if (peca.getCodigo() == codigo) {
@@ -65,8 +59,30 @@ public class GerenciamentoPecas {
         }
         return null;
     }
+    
+    public Peca buscarPeca(String nome) {
+        if (nome == null || nome.isBlank()) {
+            return null;
+        }
+        String busca = nome.toLowerCase().trim();
+        for (Peca peca : this.pecas) {
+            if (peca.getNome().toLowerCase().equals(busca)) {
+                return peca;
+            }
+        }
+        return null;
+    }
 
-    //VISUALIZAR TODAS AS PECAS
+
+    public void validarEstoque(int codigoPeca) throws PecaSemEstoqueException {
+        Peca peca = buscarPeca(codigoPeca);
+        if (peca == null || peca.getQuantidade() <= 0) {
+            throw new PecaSemEstoqueException(codigoPeca);
+        }else{
+            peca.setQuantidade(peca.getQuantidade() -1);
+        }
+    }
+
     public String visuzalizarPecas() {
         String conteudo = "";
         for (Peca peca : this.pecas) {
@@ -74,14 +90,20 @@ public class GerenciamentoPecas {
         }
         return conteudo;
     }
+    
+     public String resumirPecas() {
+        String resumo = "";
+        for (Peca cliente : this.pecas) {
+            resumo += cliente.getResumo() + "\n"; 
+        }
+        return resumo;
+    }
 
-    //CADASTRAR UMA NOVA PECA
     public void cadastrarPeca(Peca peca) {
         this.pecas.add(peca);
         persistirDados();
     }
 
-    //EDITAR UMA PECA
     public void editarPeca(int codigo, String nome, double preco, int quantidade) {
         for (Peca peca : this.pecas) {
             if (codigo == peca.getCodigo()) {
@@ -94,10 +116,8 @@ public class GerenciamentoPecas {
         }
     }
 
-    //REMOVER UMA PECA
     public void removerPeca(int codigo) {
         this.pecas.removeIf(peca -> peca.getCodigo() == codigo);
         persistirDados();
     }
-
 }

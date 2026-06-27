@@ -6,10 +6,13 @@
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoServicos.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoUsuarios.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/control/GerenciamentoVeiculos.java
+/home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/exception/CredenciaisInvalidasException.java
+/home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/exception/PecaSemEstoqueException.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Cliente.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Funcionario.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/OrdemServico.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Peca.java
+/home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Pessoa.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/Servico.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/StatusOrdemServico.java
 /home/silvestre/NetBeansProjects/GestaoOficina/src/main/java/com/mycompany/gestaooficina/model/TipoFuncionario.java

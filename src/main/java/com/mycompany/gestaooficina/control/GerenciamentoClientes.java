@@ -6,11 +6,6 @@ import com.mycompany.gestaooficina.persistence.ArmazenamentoArquivo;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Classe de controle responsável por todas as operações sobre clientes,
- * incluindo a leitura e a gravação automática dos dados no arquivo
- * {@value #ARQUIVO_DADOS}.
- */
 public class GerenciamentoClientes {
 
     private static final String ARQUIVO_DADOS = "clientes.txt";
@@ -32,7 +27,6 @@ public class GerenciamentoClientes {
         return instance;
     }
 
-    //CARREGA OS CLIENTES PERSISTIDOS NO ARQUIVO DE DADOS
     private void carregarDados() {
         List<String> linhas = ArmazenamentoArquivo.lerLinhas(ARQUIVO_DADOS);
         int maiorCodigo = CODIGO_INICIAL - 1;
@@ -42,13 +36,12 @@ public class GerenciamentoClientes {
                 this.clientes.add(cliente);
                 maiorCodigo = Math.max(maiorCodigo, cliente.getCodigo());
             } catch (RuntimeException e) {
-                // Linha inválida ou corrompida é ignorada para não impedir a inicialização do sistema.
+                // Linha inválida ou corrompida é ignorada.
             }
         }
         CODIGO = maiorCodigo + 1;
     }
 
-    //GRAVA TODOS OS CLIENTES ATUAIS NO ARQUIVO DE DADOS
     private void persistirDados() {
         List<String> linhas = new LinkedList<>();
         for (Cliente cliente : this.clientes) {
@@ -57,7 +50,7 @@ public class GerenciamentoClientes {
         ArmazenamentoArquivo.escreverLinhas(ARQUIVO_DADOS, linhas);
     }
 
-    //BUSCAR CLIENTE POR CODIGO
+
     public Cliente buscarCliente(int codigo) {
         for (Cliente cliente : this.clientes) {
             if (cliente.getCodigo() == codigo) {
@@ -67,7 +60,19 @@ public class GerenciamentoClientes {
         return null;
     }
 
-    //VISUALIZAR TODOS OS CLIENTES
+    public Cliente buscarCliente(String nome) {
+        if (nome == null || nome.isBlank()) {
+            return null;
+        }
+        String busca = nome.toLowerCase().trim();
+        for (Cliente cliente : this.clientes) {
+            if (cliente.getNome().toLowerCase().equals(busca)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
     public String visualizarClientes() {
         String conteudo = "";
         for (Cliente cliente : this.clientes) {
@@ -75,14 +80,20 @@ public class GerenciamentoClientes {
         }
         return conteudo;
     }
+    
+    public String resumirClientes() {
+        String resumo = "";
+        for (Cliente cliente : this.clientes) {
+            resumo += cliente.getResumo() + "\n"; 
+        }
+        return resumo;
+    }
 
-    //CADASTRAR UM NOVO CLIENTE
     public void cadastrarCliente(Cliente cliente) {
         this.clientes.add(cliente);
         persistirDados();
     }
 
-    //EDITAR UM CLIENTE
     public void editarCliente(int codigo, String nome, String cpf, String telefone, String email) {
         for (Cliente cliente : this.clientes) {
             if (codigo == cliente.getCodigo()) {
@@ -96,19 +107,14 @@ public class GerenciamentoClientes {
         }
     }
 
-    //REMOVER UM CLIENTE (E EM CASCATA OS VEICULOS E ORDENS DE SERVICO ATRELADOS A ELE)
     public void removerCliente(int codigo) {
-        //REMOVE EM CASCATA TODOS OS VEICULOS DO CLIENTE (que por sua vez removem as OS atreladas a eles)
         GerenciamentoVeiculos genVeiculos = GerenciamentoVeiculos.getInstance();
         List<Veiculo> veiculosDoCliente = genVeiculos.buscarVeiculosPorCliente(codigo);
         for (Veiculo veiculo : veiculosDoCliente) {
             genVeiculos.removerVeiculo(veiculo.getCodigo());
         }
-        //GARANTE QUE NAO RESTEM ORDENS DE SERVICO LIGADAS DIRETAMENTE AO CLIENTE
         GerenciamentoOrdemServico.getInstance().removerOrdemServicoPorCliente(codigo);
-
         this.clientes.removeIf(cliente -> cliente.getCodigo() == codigo);
         persistirDados();
     }
-
 }

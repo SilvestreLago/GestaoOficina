@@ -14,12 +14,6 @@ public enum TipoFuncionario {
         return descricao;
     }
 
-    @Override
-    public String toString() {
-        return descricao;
-    }
-
-    //CONVERTE UMA STRING (ex: vinda de formulario) PARA O ENUM CORRESPONDENTE
     public static TipoFuncionario fromString(String texto) {
         for (TipoFuncionario tipo : TipoFuncionario.values()) {
             if (tipo.descricao.equalsIgnoreCase(texto) || tipo.name().equalsIgnoreCase(texto)) {

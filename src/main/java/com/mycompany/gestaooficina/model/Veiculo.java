@@ -44,6 +44,10 @@ public class Veiculo {
     public String getQuilometragem() { return quilometragem; }
     public void setQuilometragem(String quilometragem) { this.quilometragem = quilometragem; }
 
+    public String getResumo() {
+        return "Veiculo #" + codigo + " — " + placa + " (Modelo: " + modelo + ")";
+    }
+    
     public String visualizarVeiculo() {
         return "\n\nCodigo: " + this.codigo +
                "\nCod. Cliente: " + this.codigoCliente +
@@ -54,7 +58,6 @@ public class Veiculo {
                "\nQuilometragem: " + this.quilometragem;
     }
 
-    //CONVERTE O VEICULO EM UMA LINHA DE TEXTO PARA GRAVACAO EM ARQUIVO
     public String paraLinha() {
         return this.codigo + "|"
                 + this.codigoCliente + "|"
@@ -65,7 +68,6 @@ public class Veiculo {
                 + ArmazenamentoArquivo.escaparCampo(this.quilometragem);
     }
 
-    //RECONSTROI UM VEICULO A PARTIR DE UMA LINHA LIDA DO ARQUIVO DE DADOS
     public static Veiculo apartirDeLinha(String linha) {
         String[] campos = ArmazenamentoArquivo.dividirCampos(linha);
         Veiculo veiculo = new Veiculo(Integer.parseInt(campos[1]), campos[2], campos[3], campos[4], campos[5], campos[6]);

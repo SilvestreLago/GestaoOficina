@@ -57,7 +57,10 @@ public class Peca {
         this.quantidade = quantidade;
     }
     
-    //FUNCAO PARA VISUALIZAR AS INFORMACOES DA PECA
+    public String getResumo() {
+        return "Peca #" + codigo + " — " + nome + " (R$: " + preco + ")";
+    }
+    
     public String visualizarPeca(){
         String conteudo = "";
         conteudo = 
@@ -67,8 +70,7 @@ public class Peca {
                 "\nQuantidade: " + this.quantidade;
         return conteudo;
     }
-
-    //CONVERTE A PECA EM UMA LINHA DE TEXTO PARA GRAVACAO EM ARQUIVO
+    
     public String paraLinha() {
         return this.codigo + "|"
                 + ArmazenamentoArquivo.escaparCampo(this.nome) + "|"
@@ -76,7 +78,6 @@ public class Peca {
                 + this.quantidade;
     }
 
-    //RECONSTROI UMA PECA A PARTIR DE UMA LINHA LIDA DO ARQUIVO DE DADOS
     public static Peca apartirDeLinha(String linha) {
         String[] campos = ArmazenamentoArquivo.dividirCampos(linha);
         Peca peca = new Peca(campos[1], Double.parseDouble(campos[2]), Integer.parseInt(campos[3]));

@@ -76,7 +76,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton5" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
+                              <Component id="jButtonVerOs" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
                               <Component id="jButtonVerServico" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -108,7 +108,7 @@
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="jButtonVerServico" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonVerOs" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="69" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -183,7 +183,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVerPecaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="jButtonVerOs">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="33" red="0" type="rgb"/>
@@ -197,7 +197,7 @@
             <Property name="text" type="java.lang.String" value="Buscar Ordem de Servi&#xe7;o"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVerOsActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonVerServico">

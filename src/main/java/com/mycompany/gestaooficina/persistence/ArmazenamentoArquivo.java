@@ -12,30 +12,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Classe utilitária responsável por toda a leitura e escrita de dados em
- * arquivos de texto (.txt). É utilizada pelas classes de controle
- * (Gerenciamento*) para tornar os dados do sistema persistentes entre
- * execuções, sem a necessidade de um banco de dados.
- *
- * <p>Cada entidade do sistema é gravada em um arquivo próprio, dentro do
- * diretório {@value #DIRETORIO_DADOS}, localizado na raiz da aplicação.
- * Cada linha do arquivo representa um registro, com os campos separados
- * pelo caractere "|" (pipe).</p>
- */
 public final class ArmazenamentoArquivo {
 
     private static final Logger LOGGER = Logger.getLogger(ArmazenamentoArquivo.class.getName());
 
-    // Diretório onde todos os arquivos de dados da aplicação são salvos.
     public static final String DIRETORIO_DADOS = "data";
 
-    // Caractere utilizado para separar os campos dentro de cada linha.
     public static final String SEPARADOR = "|";
 
-    private ArmazenamentoArquivo() {
-        // Classe utilitária: não deve ser instanciada.
-    }
+    private ArmazenamentoArquivo() {}
 
     private static Path resolverCaminho(String nomeArquivo) {
         Path diretorio = Paths.get(DIRETORIO_DADOS);
